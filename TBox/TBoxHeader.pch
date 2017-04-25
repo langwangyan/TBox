@@ -1,0 +1,24 @@
+//
+//  TBoxHeader.pch
+//  TBox
+//
+//  Created by 王言 on 2017/4/25.
+//  Copyright © 2017年 tbox. All rights reserved.
+//
+
+#ifndef TBoxHeader_pch
+#define TBoxHeader_pch
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* TBoxHeader_pch */
+
+
