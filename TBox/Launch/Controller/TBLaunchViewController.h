@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TBFirstView.h"
 #import "TBSecondView.h"
+#import "TBIndexView.h"
 
 @interface TBLaunchViewController : UIViewController
 
