@@ -1,5 +1,5 @@
 //
-//  TBIndexViewController.h
+//  TBLeftViewController.h
 //  TBox
 //
 //  Created by 王言 on 2017/4/26.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TBIndexViewController : UIViewController
+@interface TBLeftViewController : UIViewController
 
 @end

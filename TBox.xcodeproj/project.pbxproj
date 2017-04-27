@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B791EB238600071A663 /* TBHomeViewController.m */; };
+		E3180B7E1EB23B5A0071A663 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B7D1EB23B5A0071A663 /* SWRevealViewController.m */; };
+		E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B801EB23ECD0071A663 /* TBCenterViewController.m */; };
 		E375824E1EAE59FF006B9A53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E375824D1EAE59FF006B9A53 /* main.m */; };
 		E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E37582501EAE59FF006B9A53 /* AppDelegate.m */; };
 		E37582571EAE59FF006B9A53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37582551EAE59FF006B9A53 /* Main.storyboard */; };
 		E37582591EAE59FF006B9A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37582581EAE59FF006B9A53 /* Assets.xcassets */; };
-		E37582741EAE5DAC006B9A53 /* TBLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37582731EAE5DAC006B9A53 /* TBLaunchViewController.m */; };
 		E375827B1EAE5DE9006B9A53 /* TBSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = E375827A1EAE5DE9006B9A53 /* TBSecondView.m */; };
-		E3AA22461EB0E694006C656D /* TBIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22421EB0E694006C656D /* TBIndexViewController.m */; };
+		E3AA22461EB0E694006C656D /* TBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22421EB0E694006C656D /* TBLeftViewController.m */; };
 		E3AA22471EB0E694006C656D /* TBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22441EB0E694006C656D /* TBNavigationController.m */; };
 		E3AA224C1EB0E718006C656D /* TBIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA224B1EB0E718006C656D /* TBIndexView.m */; };
 		E3AA224F1EB0ECCC006C656D /* TBFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA224E1EB0ECCC006C656D /* TBFirstView.m */; };
@@ -135,6 +137,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E3180B781EB238600071A663 /* TBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHomeViewController.h; sourceTree = "<group>"; };
+		E3180B791EB238600071A663 /* TBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHomeViewController.m; sourceTree = "<group>"; };
+		E3180B7C1EB23B5A0071A663 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E3180B7D1EB23B5A0071A663 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterViewController.h; sourceTree = "<group>"; };
+		E3180B801EB23ECD0071A663 /* TBCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCenterViewController.m; sourceTree = "<group>"; };
 		E37582491EAE59FF006B9A53 /* TBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E375824D1EAE59FF006B9A53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E375824F1EAE59FF006B9A53 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -142,13 +150,11 @@
 		E37582561EAE59FF006B9A53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E37582581EAE59FF006B9A53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E375825D1EAE59FF006B9A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E37582721EAE5DAC006B9A53 /* TBLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLaunchViewController.h; sourceTree = "<group>"; };
-		E37582731EAE5DAC006B9A53 /* TBLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLaunchViewController.m; sourceTree = "<group>"; };
 		E37582791EAE5DE9006B9A53 /* TBSecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSecondView.h; sourceTree = "<group>"; };
 		E375827A1EAE5DE9006B9A53 /* TBSecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSecondView.m; sourceTree = "<group>"; };
 		E375827C1EAE5FAE006B9A53 /* TBoxHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoxHeader.pch; sourceTree = "<group>"; };
-		E3AA22411EB0E694006C656D /* TBIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBIndexViewController.h; sourceTree = "<group>"; };
-		E3AA22421EB0E694006C656D /* TBIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBIndexViewController.m; sourceTree = "<group>"; };
+		E3AA22411EB0E694006C656D /* TBLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLeftViewController.h; sourceTree = "<group>"; };
+		E3AA22421EB0E694006C656D /* TBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLeftViewController.m; sourceTree = "<group>"; };
 		E3AA22431EB0E694006C656D /* TBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNavigationController.h; sourceTree = "<group>"; };
 		E3AA22441EB0E694006C656D /* TBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBNavigationController.m; sourceTree = "<group>"; };
 		E3AA224A1EB0E718006C656D /* TBIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBIndexView.h; sourceTree = "<group>"; };
@@ -406,6 +412,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3180B7B1EB23B5A0071A663 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3180B7C1EB23B5A0071A663 /* SWRevealViewController.h */,
+				E3180B7D1EB23B5A0071A663 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		E37582401EAE59FF006B9A53 = {
 			isa = PBXGroup;
 			children = (
@@ -451,19 +466,9 @@
 		E375826D1EAE5B3A006B9A53 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				E37582711EAE5D8E006B9A53 /* Controller */,
 				E37582751EAE5DB5006B9A53 /* View */,
 			);
 			path = Launch;
-			sourceTree = "<group>";
-		};
-		E37582711EAE5D8E006B9A53 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E37582721EAE5DAC006B9A53 /* TBLaunchViewController.h */,
-				E37582731EAE5DAC006B9A53 /* TBLaunchViewController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		E37582751EAE5DB5006B9A53 /* View */ = {
@@ -490,8 +495,12 @@
 		E3AA223D1EB0E672006C656D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E3AA22411EB0E694006C656D /* TBIndexViewController.h */,
-				E3AA22421EB0E694006C656D /* TBIndexViewController.m */,
+				E3180B781EB238600071A663 /* TBHomeViewController.h */,
+				E3180B791EB238600071A663 /* TBHomeViewController.m */,
+				E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */,
+				E3180B801EB23ECD0071A663 /* TBCenterViewController.m */,
+				E3AA22411EB0E694006C656D /* TBLeftViewController.h */,
+				E3AA22421EB0E694006C656D /* TBLeftViewController.m */,
 				E3AA22431EB0E694006C656D /* TBNavigationController.h */,
 				E3AA22441EB0E694006C656D /* TBNavigationController.m */,
 			);
@@ -648,6 +657,7 @@
 		E3C1AAE11EAF97B000F1CF16 /* ThirdFramework */ = {
 			isa = PBXGroup;
 			children = (
+				E3180B7B1EB23B5A0071A663 /* SWRevealViewController */,
 				E3AA22591EB0EFC0006C656D /* BFKit */,
 				E3C1AB961EAF9E2300F1CF16 /* AFNetworking */,
 				E3C1AB8D1EAF9BE300F1CF16 /* FLAnimatedImage */,
@@ -1042,6 +1052,7 @@
 				E3AA22D61EB0EFC1006C656D /* UIWindow+BFKit.m in Sources */,
 				E3C1AB3E1EAF982400F1CF16 /* MJFoundation.m in Sources */,
 				E3C1ABC31EAF9E2300F1CF16 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */,
 				E3AA22D51EB0EFC1006C656D /* UIWebView+BFKit.m in Sources */,
 				E3AA22BB1EB0EFC0006C656D /* NSDate+BFKit.m in Sources */,
 				E3C1ABBC1EAF9E2300F1CF16 /* AFSecurityPolicy.m in Sources */,
@@ -1078,10 +1089,11 @@
 				E3C1AB401EAF982400F1CF16 /* MJPropertyKey.m in Sources */,
 				E3AA22DF1EB0EFC1006C656D /* BFTouchID.m in Sources */,
 				E3C1AB411EAF982400F1CF16 /* MJPropertyType.m in Sources */,
-				E3AA22461EB0E694006C656D /* TBIndexViewController.m in Sources */,
+				E3AA22461EB0E694006C656D /* TBLeftViewController.m in Sources */,
 				E3C1AB881EAF9A5C00F1CF16 /* UIView+WebCache.m in Sources */,
 				E3AA22DA1EB0EFC1006C656D /* BFDataStructures.m in Sources */,
 				E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */,
+				E3180B7E1EB23B5A0071A663 /* SWRevealViewController.m in Sources */,
 				E3AA22C71EB0EFC1006C656D /* UIColor+BFKit.m in Sources */,
 				E3C1AB191EAF97C300F1CF16 /* MJRefreshBackGifFooter.m in Sources */,
 				E3AA22D81EB0EFC1006C656D /* BFButton.m in Sources */,
@@ -1118,11 +1130,11 @@
 				E3AA22CD1EB0EFC1006C656D /* UINavigationBar+BFKit.m in Sources */,
 				E3AA224F1EB0ECCC006C656D /* TBFirstView.m in Sources */,
 				E3C1AB3F1EAF982400F1CF16 /* MJProperty.m in Sources */,
+				E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */,
 				E3C1AB3D1EAF982400F1CF16 /* MJExtensionConst.m in Sources */,
 				E3AA22C61EB0EFC1006C656D /* UIButton+BFKit.m in Sources */,
 				E375824E1EAE59FF006B9A53 /* main.m in Sources */,
 				E3C1AB111EAF97C300F1CF16 /* MJRefreshAutoFooter.m in Sources */,
-				E37582741EAE5DAC006B9A53 /* TBLaunchViewController.m in Sources */,
 				E3AA22BA1EB0EFC0006C656D /* NSData+BFKit.m in Sources */,
 				E3C1AB7A1EAF9A5C00F1CF16 /* SDImageCache.m in Sources */,
 			);

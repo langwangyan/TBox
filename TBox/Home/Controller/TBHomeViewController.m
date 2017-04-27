@@ -1,21 +1,20 @@
 //
-//  TBLaunchViewController.m
+//  TBHomeViewController.m
 //  TBox
 //
 //  Created by 王言 on 2017/4/25.
 //  Copyright © 2017年 tbox. All rights reserved.
 //
 
-#import "TBLaunchViewController.h"
+#import "TBHomeViewController.h"
 
-@interface TBLaunchViewController ()
+@interface TBHomeViewController ()
 
 @property(nonatomic,strong) TBFirstView *firstView;
 @property(nonatomic,strong) TBSecondView *secondView;
-@property(nonatomic,strong) TBIndexView *indexView;
 @end
 
-@implementation TBLaunchViewController
+@implementation TBHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,36 +35,36 @@
     NSDictionary *dic = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.f], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
     
-    
-//    [NSThread sleepForTimeInterval:1.0f];
-    
-//    __weak typeof(self) weakSelf = self;
-//    [UIView animateWithDuration:1.0 animations:^{
-//        [weakSelf.firstView setHidden:YES];
-//        [weakSelf.secondView setHidden:YES];
-//        weakSelf.firstView = nil;
-//        weakSelf.secondView = nil;
-//        
-//        [weakSelf.view addSubview:weakSelf.indexView];
-////        [_indexView setFrame:CGRectMake(0, 100, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height)];
-//    }];
+    [self initHomeVC];
     
     
 }
 
-- (TBIndexView *)indexView {
-    if (!_indexView) {
-        _indexView = [[TBIndexView alloc]initWithFrame:self.view.frame];
-//        [_indexView setFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
-    }
-    return _indexView;
+/**初始化首页*/
+- (void) initHomeVC {
+    TBLeftViewController *leftVC = [[TBLeftViewController alloc] init];
+    TBCenterViewController *centerVC = [[TBCenterViewController alloc] init];
+    
+    [self setFrontViewController:centerVC];
+    [self setRearViewController:leftVC];
+    
+    
+    //浮动层离左边距的宽度
+    self.rearViewRevealWidth = 130;
+    //    revealViewController.rightViewRevealWidth = 230;
+    
+    //是否让浮动层弹回原位
+    self.bounceBackOnOverdraw = NO;
+    [self setFrontViewPosition:FrontViewPositionLeftSideMostRemoved animated:YES];
+    
+    [centerVC.view addGestureRecognizer:self.panGestureRecognizer];
+//    [self.view addGestureRecognizer:self.tapGestureRecognizer];
+//    [leftVC.view addGestureRecognizer:self.tapGestureRecognizer];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
+/**判断是App否为首次启动*/
 - (BOOL) isAppFirstRun{
     
     NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary]
@@ -83,6 +82,11 @@
         return YES;
     }
     return NO;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*

@@ -1,8 +1,9 @@
 //
-//  XNGuideView.m
+//  TBFirstView.m
+//  TBox
 //
-//  Created by LuohanCC on 15/11/30.
-//  Copyright © 2015年 罗函. All rights reserved.
+//  Created by 王言 on 2017/4/25.
+//  Copyright © 2017年 tbox. All rights reserved.
 //
 
 #import "TBFirstView.h"

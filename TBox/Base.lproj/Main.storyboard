@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="840" y="95"/>
         </scene>
-        <!--Launch View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="Htt-eZ-PI2">
             <objects>
-                <viewController id="5Uq-Wj-JNE" customClass="TBLaunchViewController" sceneMemberID="viewController">
+                <viewController id="5Uq-Wj-JNE" customClass="TBHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z1R-zo-d8f"/>
                         <viewControllerLayoutGuide type="bottom" id="W3o-4D-HGW"/>

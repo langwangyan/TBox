@@ -1,22 +1,24 @@
 //
-//  TBIndexViewController.m
+//  TBCenterViewController.m
 //  TBox
 //
-//  Created by 王言 on 2017/4/26.
+//  Created by 王言 on 2017/4/27.
 //  Copyright © 2017年 tbox. All rights reserved.
 //
 
-#import "TBIndexViewController.h"
+#import "TBCenterViewController.h"
 
-@interface TBIndexViewController ()
+@interface TBCenterViewController ()
 
 @end
 
-@implementation TBIndexViewController
+@implementation TBCenterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
 }
 
 - (void)didReceiveMemoryWarning {
