@@ -21,8 +21,6 @@
 
 
 #import "SWRevealViewController.h"
-#import <AMapFoundationKit/AMapFoundationKit.h>
-#import <MAMapKit/MAMapKit.h>
 
 #endif /* TBoxHeader_pch */
 
