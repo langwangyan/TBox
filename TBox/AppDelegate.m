@@ -16,7 +16,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    _mapManager = [[BMKMapManager alloc]init];
+    if ([BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_BD09LL]) {
+        NSLog(@"经纬度类型设置成功");
+    } else {
+        NSLog(@"经纬度类型设置失败");
+    }
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"MA1rpKusO3lGUscRw0QC1xMRPPRGb9PG"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    // Add the navigation controller's view to the window and display.
+    [self.window addSubview:_navigationController.view];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
