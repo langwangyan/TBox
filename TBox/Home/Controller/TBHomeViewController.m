@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initHomeVC];
     
     if ([self isAppFirstRun]) {
         //首次启动或更新安装
@@ -35,9 +36,6 @@
     NSDictionary *dic = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.f], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
     
-    [self initHomeVC];
-    
-    
 }
 
 /**初始化首页*/
@@ -45,22 +43,36 @@
     TBLeftViewController *leftVC = [[TBLeftViewController alloc] init];
     TBCenterViewController *centerVC = [[TBCenterViewController alloc] init];
     
-    [self setFrontViewController:centerVC];
-    [self setRearViewController:leftVC];
+    [leftVC.view setFrame:self.view.frame];
+    
+    [self setLeftControl:leftVC];
+    [self setMainControl:centerVC];
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    
+    [self setSpeedf:0.5];
+    
+    //点击视图是是否恢复位置
+    self.sideslipTapGes.enabled = YES;
+    
+    //滑动手势
+//    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
+//    [self.mainControl.view addGestureRecognizer:pan];
     
     
-    //浮动层离左边距的宽度
-    self.rearViewRevealWidth = 130;
-    //    revealViewController.rightViewRevealWidth = 230;
+    //单击手势
+    self.sideslipTapGes= [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handeTap:)];
+    [self.sideslipTapGes setNumberOfTapsRequired:1];
     
-    //是否让浮动层弹回原位
-    self.bounceBackOnOverdraw = NO;
-    [self setFrontViewPosition:FrontViewPositionLeftSideMostRemoved animated:YES];
+    [self.mainControl.view addGestureRecognizer:self.sideslipTapGes];
     
-    [centerVC.view addGestureRecognizer:self.panGestureRecognizer];
-//    [self.view addGestureRecognizer:self.tapGestureRecognizer];
-//    [leftVC.view addGestureRecognizer:self.tapGestureRecognizer];
-
+    self.leftControl.view.hidden = YES;
+    [self.view addSubview:self.leftControl.view];
+    [self.view addSubview:self.mainControl.view];
+    
+    //添加左滑button
+    [self.view addSubview:self.showLeftBtn];
+    
 }
 
 
@@ -89,14 +101,80 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIButton *)showLeftBtn {
+    if (!_showLeftBtn) {
+        _showLeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, 50, 100, 50)];
+        [_showLeftBtn setTitle:@"点击显示左边" forState:UIControlStateNormal];
+        [_showLeftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_showLeftBtn setBackgroundColor:[UIColor whiteColor]];
+        [_showLeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _showLeftBtn;
 }
-*/
 
+#pragma mark - 滑动手势
+//滑动手势
+//- (void) handlePan: (UIPanGestureRecognizer *)rec{
+//    
+//    CGPoint point = [rec translationInView:self.view];
+//    
+//    self.scalef = (point.x*self.speedf+self.scalef);
+//    
+//    //根据视图位置判断是左滑还是右边滑动
+//    rec.view.center = CGPointMake(rec.view.center.x + point.x*self.speedf,rec.view.center.y);
+//    rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1-self.scalef/1000,1.0);
+//    [rec setTranslation:CGPointMake(0, 0) inView:self.view];
+//    
+//    self.leftControl.view.hidden = NO;
+//    
+//    //手势结束后修正位置
+//    if (rec.state == UIGestureRecognizerStateEnded) {
+//        if (self.scalef>140*self.speedf){
+//            [self showLeftView];
+//        }else{
+//            [self showMainView];
+//            self.scalef = 0;
+//        }
+//    }
+//    
+//}
+
+
+#pragma mark - 单击手势
+-(void)handeTap:(UITapGestureRecognizer *)tap{
+    
+    if (tap.state == UIGestureRecognizerStateEnded) {
+        [UIView beginAnimations:nil context:nil];
+        tap.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+        tap.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
+        [UIView commitAnimations];
+        self.scalef = 0;
+    }
+}
+
+#pragma mark - 修改视图位置
+//恢复位置
+-(void)showMainView{
+    self.leftControl.view.hidden = YES;
+    [UIView beginAnimations:nil context:nil];
+    self.mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.mainControl.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
+    [UIView commitAnimations];
+}
+
+//显示左视图
+-(void)showLeftView{
+    self.leftControl.view.hidden = NO;
+    [UIView beginAnimations:nil context:nil];
+    self.mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.mainControl.view.center = CGPointMake(340,[UIScreen mainScreen].bounds.size.height/2);
+    [UIView commitAnimations];
+    
+}
+
+#pragma mark 为了界面美观，所以隐藏了状态栏。如果需要显示则去掉此代码
+- (BOOL)prefersStatusBarHidden
+{
+    return NO; //返回NO表示要显示，返回YES将hiden
+}
 @end

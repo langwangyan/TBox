@@ -29,7 +29,7 @@
 }
 
 -(void)initView{
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:150.f green:205.f blue:205.f alpha:0.5];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT-20) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
@@ -64,7 +64,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SWRevealViewController *revealViewController = self.revealViewController;
     UIViewController *viewController;
     
     switch (indexPath.row) {
@@ -78,7 +77,8 @@
             break;
     }
     //调用pushFrontViewController进行页面切换
-    [revealViewController pushFrontViewController:viewController animated:YES];
+    
+//    [revealViewController pushFrontViewController:viewController animated:YES];
     
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B791EB238600071A663 /* TBHomeViewController.m */; };
-		E3180B7E1EB23B5A0071A663 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B7D1EB23B5A0071A663 /* SWRevealViewController.m */; };
 		E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B801EB23ECD0071A663 /* TBCenterViewController.m */; };
 		E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8A1EB24C260071A663 /* CoreGraphics.framework */; };
 		E3180B8D1EB24C3A0071A663 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8C1EB24C3A0071A663 /* QuartzCore.framework */; };
@@ -158,8 +157,6 @@
 /* Begin PBXFileReference section */
 		E3180B781EB238600071A663 /* TBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHomeViewController.h; sourceTree = "<group>"; };
 		E3180B791EB238600071A663 /* TBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHomeViewController.m; sourceTree = "<group>"; };
-		E3180B7C1EB23B5A0071A663 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		E3180B7D1EB23B5A0071A663 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterViewController.h; sourceTree = "<group>"; };
 		E3180B801EB23ECD0071A663 /* TBCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCenterViewController.m; sourceTree = "<group>"; };
 		E3180B8A1EB24C260071A663 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -468,15 +465,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E3180B7B1EB23B5A0071A663 /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E3180B7C1EB23B5A0071A663 /* SWRevealViewController.h */,
-				E3180B7D1EB23B5A0071A663 /* SWRevealViewController.m */,
-			);
-			path = SWRevealViewController;
-			sourceTree = "<group>";
-		};
 		E37582401EAE59FF006B9A53 = {
 			isa = PBXGroup;
 			children = (
@@ -714,7 +702,6 @@
 			isa = PBXGroup;
 			children = (
 				E3FA175B1EB8CAB90013ECC1 /* mapapi.bundle */,
-				E3180B7B1EB23B5A0071A663 /* SWRevealViewController */,
 				E3AA22591EB0EFC0006C656D /* BFKit */,
 				E3C1AB961EAF9E2300F1CF16 /* AFNetworking */,
 				E3C1AB8D1EAF9BE300F1CF16 /* FLAnimatedImage */,
@@ -1170,7 +1157,6 @@
 				E3C1AB881EAF9A5C00F1CF16 /* UIView+WebCache.m in Sources */,
 				E3AA22DA1EB0EFC1006C656D /* BFDataStructures.m in Sources */,
 				E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */,
-				E3180B7E1EB23B5A0071A663 /* SWRevealViewController.m in Sources */,
 				E3AA22C71EB0EFC1006C656D /* UIColor+BFKit.m in Sources */,
 				E3C1AB191EAF97C300F1CF16 /* MJRefreshBackGifFooter.m in Sources */,
 				E3AA22D81EB0EFC1006C656D /* BFButton.m in Sources */,

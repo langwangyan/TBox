@@ -15,6 +15,25 @@
 #import "TBLeftViewController.h"
 #import "TBCenterViewController.h"
 
-@interface TBHomeViewController : SWRevealViewController
+@interface TBHomeViewController : UIViewController
+
+@property(nonatomic,strong) UIViewController * leftControl;
+@property(nonatomic,strong) UIViewController * mainControl;
+
+@property(nonatomic,strong) UIButton *showLeftBtn;
+
+@property(nonatomic,assign) CGFloat scalef;
+
+//滑动速度系数-建议在0.5-1之间。默认为0.5
+@property (assign,nonatomic) CGFloat speedf;
+
+//是否允许点击视图恢复视图位置。默认为yes
+@property (strong) UITapGestureRecognizer *sideslipTapGes;
+
+//恢复位置
+-(void)showMainView;
+
+//显示左视图
+-(void)showLeftView;
 
 @end
