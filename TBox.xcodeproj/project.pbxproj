@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E305F90D1EBCD59E008E17F6 /* TBStoreDataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F90C1EBCD59E008E17F6 /* TBStoreDataUtil.m */; };
+		E305F9111EBCD740008E17F6 /* TBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9101EBCD740008E17F6 /* TBUser.m */; };
+		E305F9171EBCDCB7008E17F6 /* TBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */; };
+		E305F91D1EBCDDA7008E17F6 /* TBLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */; };
 		E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B791EB238600071A663 /* TBHomeViewController.m */; };
 		E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B801EB23ECD0071A663 /* TBCenterViewController.m */; };
 		E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8A1EB24C260071A663 /* CoreGraphics.framework */; };
@@ -155,6 +159,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E305F90B1EBCD59E008E17F6 /* TBStoreDataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBStoreDataUtil.h; sourceTree = "<group>"; };
+		E305F90C1EBCD59E008E17F6 /* TBStoreDataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBStoreDataUtil.m; sourceTree = "<group>"; };
+		E305F90F1EBCD740008E17F6 /* TBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBUser.h; sourceTree = "<group>"; };
+		E305F9101EBCD740008E17F6 /* TBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBUser.m; sourceTree = "<group>"; };
+		E305F9151EBCDCB7008E17F6 /* TBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBRegisterViewController.h; sourceTree = "<group>"; };
+		E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRegisterViewController.m; sourceTree = "<group>"; };
+		E305F91B1EBCDDA7008E17F6 /* TBLoginIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLoginIndexViewController.h; sourceTree = "<group>"; };
+		E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLoginIndexViewController.m; sourceTree = "<group>"; };
 		E3180B781EB238600071A663 /* TBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHomeViewController.h; sourceTree = "<group>"; };
 		E3180B791EB238600071A663 /* TBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHomeViewController.m; sourceTree = "<group>"; };
 		E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterViewController.h; sourceTree = "<group>"; };
@@ -465,6 +477,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E305F90A1EBCD50B008E17F6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E305F90B1EBCD59E008E17F6 /* TBStoreDataUtil.h */,
+				E305F90C1EBCD59E008E17F6 /* TBStoreDataUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E305F90E1EBCD725008E17F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E305F90F1EBCD740008E17F6 /* TBUser.h */,
+				E305F9101EBCD740008E17F6 /* TBUser.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E305F9121EBCDC2A008E17F6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E305F9131EBCDC9A008E17F6 /* Controller */,
+				E305F9141EBCDC9A008E17F6 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E305F9131EBCDC9A008E17F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E305F91B1EBCDDA7008E17F6 /* TBLoginIndexViewController.h */,
+				E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */,
+				E305F9151EBCDCB7008E17F6 /* TBRegisterViewController.h */,
+				E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E305F9141EBCDC9A008E17F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E37582401EAE59FF006B9A53 = {
 			isa = PBXGroup;
 			children = (
@@ -485,8 +542,10 @@
 		E375824B1EAE59FF006B9A53 /* TBox */ = {
 			isa = PBXGroup;
 			children = (
+				E305F9121EBCDC2A008E17F6 /* Login */,
 				E375826D1EAE5B3A006B9A53 /* Launch */,
 				E3AA22321EB0DF1B006C656D /* Home */,
+				E305F90A1EBCD50B008E17F6 /* Util */,
 				E37582551EAE59FF006B9A53 /* Main.storyboard */,
 				E37582581EAE59FF006B9A53 /* Assets.xcassets */,
 				E375825D1EAE59FF006B9A53 /* Info.plist */,
@@ -530,6 +589,7 @@
 		E3AA22321EB0DF1B006C656D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E305F90E1EBCD725008E17F6 /* Model */,
 				E3AA223D1EB0E672006C656D /* Controller */,
 				E3AA22491EB0E6F9006C656D /* View */,
 			);
@@ -1094,6 +1154,7 @@
 				E3AA22DC1EB0EFC1006C656D /* BFPassword.m in Sources */,
 				E3C1AB1E1EAF97C300F1CF16 /* MJRefreshStateHeader.m in Sources */,
 				E3C1AB421EAF982400F1CF16 /* NSObject+MJClass.m in Sources */,
+				E305F9171EBCDCB7008E17F6 /* TBRegisterViewController.m in Sources */,
 				E3C1AB831EAF9A5C00F1CF16 /* UIImage+GIF.m in Sources */,
 				E3AA22BD1EB0EFC0006C656D /* NSFileManager+BFKit.m in Sources */,
 				E3C1AB1C1EAF97C300F1CF16 /* MJRefreshGifHeader.m in Sources */,
@@ -1160,6 +1221,7 @@
 				E3AA22C71EB0EFC1006C656D /* UIColor+BFKit.m in Sources */,
 				E3C1AB191EAF97C300F1CF16 /* MJRefreshBackGifFooter.m in Sources */,
 				E3AA22D81EB0EFC1006C656D /* BFButton.m in Sources */,
+				E305F90D1EBCD59E008E17F6 /* TBStoreDataUtil.m in Sources */,
 				E3C1ABC01EAF9E2300F1CF16 /* AFAutoPurgingImageCache.m in Sources */,
 				E3C1ABBA1EAF9E2300F1CF16 /* AFHTTPSessionManager.m in Sources */,
 				E3C1AB151EAF97C300F1CF16 /* MJRefreshHeader.m in Sources */,
@@ -1199,6 +1261,8 @@
 				E375824E1EAE59FF006B9A53 /* main.m in Sources */,
 				E3C1AB111EAF97C300F1CF16 /* MJRefreshAutoFooter.m in Sources */,
 				E3AA22BA1EB0EFC0006C656D /* NSData+BFKit.m in Sources */,
+				E305F91D1EBCDDA7008E17F6 /* TBLoginIndexViewController.m in Sources */,
+				E305F9111EBCD740008E17F6 /* TBUser.m in Sources */,
 				E3C1AB7A1EAF9A5C00F1CF16 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

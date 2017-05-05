@@ -7,6 +7,7 @@
 //
 
 #import "TBHomeViewController.h"
+#import "TBLoginIndexViewController.h"
 
 @interface TBHomeViewController ()
 
@@ -56,10 +57,22 @@
     [self.view addSubview:self.centerVC.view];
     [self.view addSubview:self.leftVC.view];
     
+    //初始化页面按钮
+    [self initTopBar];
+    [self initBottomBar];
+}
+
+/**初始化顶部bar*/
+- (void) initTopBar {
     //添加左滑button
     [self.view addSubview:self.showLeftBtn];
 }
 
+/**初始化底部bar*/
+- (void) initBottomBar {
+    //添加左滑button
+    [self.view addSubview:self.orderCarBtn];
+}
 
 /**判断是App否为首次启动*/
 - (BOOL) isAppFirstRun{
@@ -104,9 +117,40 @@
     return _showLeftBtn;
 }
 
+- (UIButton *)orderCarBtn {
+    if (!_orderCarBtn) {
+        _orderCarBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/3, SCREEN_HEIGHT-150, SCREEN_WIDTH/3, 50)];
+        [_orderCarBtn setTitle:@"点击约车" forState:UIControlStateNormal];
+        [_orderCarBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_orderCarBtn setBackgroundColor:[UIColor whiteColor]];
+        [_orderCarBtn addTarget:self action:@selector(orderCarBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _orderCarBtn;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 点击预约车辆按钮
+- (void) orderCarBtnClick{
+//    TBUser *user = [[TBUser alloc]init];
+//    [user setUsername:@"王言"];
+//    
+//    [TBStoreDataUtil storeUser:user];
+//    
+    TBUser *user = [TBStoreDataUtil restoreUser];
+    
+    if (!user.username && [user.username isEqualToString:@""]) {
+        //说明已经登录
+        
+    }else {
+        //说明未登录
+       TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+        [self showMainView];
+        [self.navigationController pushViewController:tbLoginIndexVC animated:YES];
+    }
 }
 
 #pragma mark - 滑动手势
@@ -138,7 +182,6 @@
 
 #pragma mark - 单击手势
 -(void)handeTap:(UITapGestureRecognizer *)tap{
-    
     if (tap.state == UIGestureRecognizerStateEnded) {
         [self showMainView];
         self.scalef = 0;

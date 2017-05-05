@@ -19,6 +19,9 @@
 
 @property(nonatomic,strong) UIButton *showLeftBtn;
 
+//一键约车button
+@property(nonatomic,strong) UIButton *orderCarBtn;
+
 @property(nonatomic,strong) TBLeftViewController *leftVC;
 @property(nonatomic,strong) TBCenterViewController *centerVC;
 

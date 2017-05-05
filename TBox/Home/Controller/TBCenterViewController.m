@@ -39,7 +39,7 @@
         //百度地图logo位置
         [_mapView setLogoPosition:BMKLogoPositionRightBottom];
         //显示用户位置
-//        [_mapView setShowsUserLocation:YES];
+        [_mapView setShowsUserLocation:YES];
     }
     
     return _mapView;
