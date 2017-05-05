@@ -29,9 +29,10 @@
 }
 
 -(void)initView{
-    self.view.backgroundColor = [UIColor colorWithRed:150.f green:205.f blue:205.f alpha:0.5];
+//    [self.view setAlpha:0.3];
+    self.view.backgroundColor = [UIColor blackColor];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT-20) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, LEFTVIEW_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
@@ -49,6 +50,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLE_VIEW_ID];
     }
+    [cell.textLabel setTextColor:[UIColor blackColor]];
     cell.textLabel.text = [_menuArray objectAtIndex:indexPath.row];
     
     return cell;

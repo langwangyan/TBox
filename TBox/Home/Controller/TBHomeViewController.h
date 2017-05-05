@@ -17,10 +17,10 @@
 
 @interface TBHomeViewController : UIViewController
 
-@property(nonatomic,strong) UIViewController * leftControl;
-@property(nonatomic,strong) UIViewController * mainControl;
-
 @property(nonatomic,strong) UIButton *showLeftBtn;
+
+@property(nonatomic,strong) TBLeftViewController *leftVC;
+@property(nonatomic,strong) TBCenterViewController *centerVC;
 
 @property(nonatomic,assign) CGFloat scalef;
 

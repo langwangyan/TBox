@@ -26,6 +26,7 @@
     self.mapView.showsUserLocation = NO;//先关闭显示的定位图层
     self.mapView.userTrackingMode = BMKUserTrackingModeFollow;//设置定位的状态
     self.mapView.showsUserLocation = YES;//显示定位图层
+    
 }
 
 - (BMKMapView *)mapView {
@@ -83,14 +84,5 @@
     [self.mapView updateLocationData:userLocation];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -12,6 +12,7 @@
 
 @property(nonatomic,strong) TBFirstView *firstView;
 @property(nonatomic,strong) TBSecondView *secondView;
+
 @end
 
 @implementation TBHomeViewController
@@ -40,39 +41,23 @@
 
 /**初始化首页*/
 - (void) initHomeVC {
-    TBLeftViewController *leftVC = [[TBLeftViewController alloc] init];
-    TBCenterViewController *centerVC = [[TBCenterViewController alloc] init];
     
-    [leftVC.view setFrame:self.view.frame];
-    
-    [self setLeftControl:leftVC];
-    [self setMainControl:centerVC];
+    self.centerVC = [[TBCenterViewController alloc] init];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
     [self setSpeedf:0.5];
-    
-    //点击视图是是否恢复位置
-    self.sideslipTapGes.enabled = YES;
-    
-    //滑动手势
-//    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
-//    [self.mainControl.view addGestureRecognizer:pan];
-    
-    
+
     //单击手势
     self.sideslipTapGes= [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handeTap:)];
     [self.sideslipTapGes setNumberOfTapsRequired:1];
     
-    [self.mainControl.view addGestureRecognizer:self.sideslipTapGes];
+    [self.centerVC.view addGestureRecognizer:self.sideslipTapGes];
     
-    self.leftControl.view.hidden = YES;
-    [self.view addSubview:self.leftControl.view];
-    [self.view addSubview:self.mainControl.view];
+    [self.view addSubview:self.centerVC.view];
+    [self.view addSubview:self.leftVC.view];
     
     //添加左滑button
     [self.view addSubview:self.showLeftBtn];
-    
 }
 
 
@@ -96,9 +81,16 @@
     return NO;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (TBLeftViewController *)leftVC {
+    if (!_leftVC) {
+        _leftVC = [[TBLeftViewController alloc] init];
+        [_leftVC.view setFrame:CGRectMake(-LEFTVIEW_WIDTH, 0, LEFTVIEW_WIDTH, SCREEN_HEIGHT)];
+        
+        //滑动手势
+        UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
+        [_leftVC.view addGestureRecognizer:pan];
+    }
+    return _leftVC;
 }
 
 - (UIButton *)showLeftBtn {
@@ -112,42 +104,43 @@
     return _showLeftBtn;
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 #pragma mark - 滑动手势
 //滑动手势
-//- (void) handlePan: (UIPanGestureRecognizer *)rec{
-//    
-//    CGPoint point = [rec translationInView:self.view];
-//    
-//    self.scalef = (point.x*self.speedf+self.scalef);
-//    
-//    //根据视图位置判断是左滑还是右边滑动
-//    rec.view.center = CGPointMake(rec.view.center.x + point.x*self.speedf,rec.view.center.y);
-//    rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1-self.scalef/1000,1.0);
-//    [rec setTranslation:CGPointMake(0, 0) inView:self.view];
-//    
-//    self.leftControl.view.hidden = NO;
-//    
-//    //手势结束后修正位置
-//    if (rec.state == UIGestureRecognizerStateEnded) {
-//        if (self.scalef>140*self.speedf){
-//            [self showLeftView];
-//        }else{
-//            [self showMainView];
-//            self.scalef = 0;
-//        }
-//    }
-//    
-//}
+- (void) handlePan: (UIPanGestureRecognizer *)rec{
+    
+    CGPoint point = [rec translationInView:self.view];
+    
+    self.scalef = (point.x*self.speedf+self.scalef);
+    
+    //根据视图位置判断是左滑还是右边滑动
+    if (self.leftVC.view.center.x<LEFTVIEW_WIDTH/2){
+        rec.view.center = CGPointMake(rec.view.center.x + point.x*self.speedf,rec.view.center.y);
+        rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1-self.scalef/1000,1.0);
+        [rec setTranslation:CGPointMake(0, 0) inView:self.view];
+    }
+    //手势结束后修正位置
+    if (rec.state == UIGestureRecognizerStateEnded) {
+        if (self.scalef>140*self.speedf){
+            [self showLeftView];
+        }else{
+            [self showMainView];
+            self.scalef = 0;
+        }
+    }
+    
+}
 
 
 #pragma mark - 单击手势
 -(void)handeTap:(UITapGestureRecognizer *)tap{
     
     if (tap.state == UIGestureRecognizerStateEnded) {
-        [UIView beginAnimations:nil context:nil];
-        tap.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
-        tap.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
-        [UIView commitAnimations];
+        [self showMainView];
         self.scalef = 0;
     }
 }
@@ -155,26 +148,20 @@
 #pragma mark - 修改视图位置
 //恢复位置
 -(void)showMainView{
-    self.leftControl.view.hidden = YES;
     [UIView beginAnimations:nil context:nil];
-    self.mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
-    self.mainControl.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
+    self.leftVC.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.leftVC.view.center = CGPointMake(-LEFTVIEW_WIDTH/2,SCREEN_HEIGHT/2);
     [UIView commitAnimations];
 }
 
 //显示左视图
 -(void)showLeftView{
-    self.leftControl.view.hidden = NO;
     [UIView beginAnimations:nil context:nil];
-    self.mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
-    self.mainControl.view.center = CGPointMake(340,[UIScreen mainScreen].bounds.size.height/2);
+    self.leftVC.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    self.leftVC.view.center = CGPointMake(LEFTVIEW_WIDTH/2,SCREEN_HEIGHT/2);
+    [self.view bringSubviewToFront:self.leftVC.view];
     [UIView commitAnimations];
     
 }
 
-#pragma mark 为了界面美观，所以隐藏了状态栏。如果需要显示则去掉此代码
-- (BOOL)prefersStatusBarHidden
-{
-    return NO; //返回NO表示要显示，返回YES将hiden
-}
 @end
