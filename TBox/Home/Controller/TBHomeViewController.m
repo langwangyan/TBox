@@ -25,7 +25,8 @@
     if ([self isAppFirstRun]) {
         //首次启动或更新安装
         NSArray *array = @[@"IMG_0123.JPG", @"IMG_0128.JPG", @"IMG_0132.JPG", @"IMG_0137.JPG"];
-        [TBFirstView showGudieView:array];
+        self.firstView = [[TBFirstView alloc]initWithFrame:self.view.frame];
+        [self.firstView showGudieView:array];
         
     }else {
         //第二次打开

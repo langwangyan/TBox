@@ -20,7 +20,7 @@
 
 @implementation TBFirstView
 
-+ (void)showGudieView:(NSArray *)imageArray {
+- (void)showGudieView:(NSArray *)imageArray {
     if(imageArray && imageArray.count > 0) {
         NSFileManager *fmanager=[NSFileManager defaultManager];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -34,7 +34,7 @@
     }
 }
 
-+ (void)skipGuide {
+- (void)skipGuide {
     NSFileManager *fmanager=[NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [NSString stringWithFormat:@"%@/%@", [paths objectAtIndex:0], GUIDE_FLAGS];
