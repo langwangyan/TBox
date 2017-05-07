@@ -17,8 +17,6 @@
 
 @interface TBHomeViewController : UIViewController
 
-@property(nonatomic,strong) UIButton *showLeftBtn;
-
 //一键约车button
 @property(nonatomic,strong) UIButton *orderCarBtn;
 

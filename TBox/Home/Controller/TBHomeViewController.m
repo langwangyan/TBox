@@ -22,6 +22,8 @@
     [super viewDidLoad];
     [self initHomeVC];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(initTopBar) name:TB_LANUCH_NF_NAME object:nil];
+    
     if ([self isAppFirstRun]) {
         //首次启动或更新安装
         NSArray *array = @[@"IMG_0123.JPG", @"IMG_0128.JPG", @"IMG_0132.JPG", @"IMG_0137.JPG"];
@@ -34,10 +36,6 @@
         [self.view addSubview:self.secondView];
 
     }
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:0.2 blue:0.4 alpha:1];
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.f], NSForegroundColorAttributeName:[UIColor whiteColor]};
-    self.navigationController.navigationBar.titleTextAttributes = dic;
     
 }
 
@@ -56,17 +54,30 @@
     [self.centerVC.view addGestureRecognizer:self.sideslipTapGes];
     
     [self.view addSubview:self.centerVC.view];
-    [self.view addSubview:self.leftVC.view];
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    [window addSubview:self.leftVC.view];
     
     //初始化页面按钮
-    [self initTopBar];
     [self initBottomBar];
 }
 
 /**初始化顶部bar*/
 - (void) initTopBar {
-    //添加左滑button
-    [self.view addSubview:self.showLeftBtn];
+    //设置背景色
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25/255. green:182/255. blue:160/255.0 alpha:1];
+    //设置左侧button
+    UIImage *barImage=[UIImage imageNamed: @"home_bar_left"];
+    barImage = [barImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:barImage style:UIBarButtonItemStyleDone target:self action:@selector(showLeftView)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    //设置右侧button
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:barImage style:UIBarButtonItemStyleDone target:self action:@selector(showLeftView)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    //设置中间文字样式
+    self.navigationItem.title = @"途犇出行";
+
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 /**初始化底部bar*/
@@ -103,19 +114,9 @@
         //滑动手势
         UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
         [_leftVC.view addGestureRecognizer:pan];
+
     }
     return _leftVC;
-}
-
-- (UIButton *)showLeftBtn {
-    if (!_showLeftBtn) {
-        _showLeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, 50, 100, 50)];
-        [_showLeftBtn setTitle:@"点击显示左边" forState:UIControlStateNormal];
-        [_showLeftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_showLeftBtn setBackgroundColor:[UIColor whiteColor]];
-        [_showLeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _showLeftBtn;
 }
 
 - (UIButton *)orderCarBtn {

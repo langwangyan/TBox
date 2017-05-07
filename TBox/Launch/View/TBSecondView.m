@@ -48,9 +48,13 @@
 
 -(void)dismissGuideView {
     [UIView animateWithDuration:0.6f animations:^{
+        //发出notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:TB_LANUCH_NF_NAME object:self userInfo:nil];
+        
+        //让scrollview 渐变消失
         self.transform = (CGAffineTransformMakeScale(1.5, 1.5));
         self.backgroundColor = [UIColor clearColor];
-        self.alpha = 0; //让scrollview 渐变消失
+        self.alpha = 0;
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
     } ];

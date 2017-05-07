@@ -19,6 +19,7 @@
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
 #define LEFTVIEW_WIDTH SCREEN_WIDTH*2/3
+#define NAVBAR_HEIGHT 50
 
 //========百度地图相关start=============
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
@@ -36,6 +37,7 @@
 //========model end=============
 
 //========工具 start=============
+#import "TBNotificationName.h"
 #import "TBStoreDataUtil.h"
 //========工具 start=============
 

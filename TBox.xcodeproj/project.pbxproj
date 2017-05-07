@@ -17,6 +17,7 @@
 		E3180B8D1EB24C3A0071A663 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8C1EB24C3A0071A663 /* QuartzCore.framework */; };
 		E3180B911EB24C4F0071A663 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B901EB24C4F0071A663 /* CoreTelephony.framework */; };
 		E3180B931EB24C580071A663 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B921EB24C580071A663 /* SystemConfiguration.framework */; };
+		E372D6231EBF03C100C47D79 /* TBNavigationBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E372D6221EBF03C100C47D79 /* TBNavigationBarView.m */; };
 		E375824E1EAE59FF006B9A53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E375824D1EAE59FF006B9A53 /* main.m */; };
 		E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E37582501EAE59FF006B9A53 /* AppDelegate.m */; };
 		E37582571EAE59FF006B9A53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37582551EAE59FF006B9A53 /* Main.storyboard */; };
@@ -175,6 +176,9 @@
 		E3180B8C1EB24C3A0071A663 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E3180B901EB24C4F0071A663 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E3180B921EB24C580071A663 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E372D6201EBF017C00C47D79 /* TBNotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNotificationName.h; sourceTree = "<group>"; };
+		E372D6211EBF03C100C47D79 /* TBNavigationBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNavigationBarView.h; sourceTree = "<group>"; };
+		E372D6221EBF03C100C47D79 /* TBNavigationBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBNavigationBarView.m; sourceTree = "<group>"; };
 		E37582491EAE59FF006B9A53 /* TBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E375824D1EAE59FF006B9A53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E375824F1EAE59FF006B9A53 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -522,6 +526,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E372D61F1EBF017C00C47D79 /* NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				E372D6201EBF017C00C47D79 /* TBNotificationName.h */,
+			);
+			path = NotificationCenter;
+			sourceTree = "<group>";
+		};
 		E37582401EAE59FF006B9A53 = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +557,7 @@
 				E305F9121EBCDC2A008E17F6 /* Login */,
 				E375826D1EAE5B3A006B9A53 /* Launch */,
 				E3AA22321EB0DF1B006C656D /* Home */,
+				E372D61F1EBF017C00C47D79 /* NotificationCenter */,
 				E305F90A1EBCD50B008E17F6 /* Util */,
 				E37582551EAE59FF006B9A53 /* Main.storyboard */,
 				E37582581EAE59FF006B9A53 /* Assets.xcassets */,
@@ -616,6 +629,8 @@
 			children = (
 				E3AA224A1EB0E718006C656D /* TBIndexView.h */,
 				E3AA224B1EB0E718006C656D /* TBIndexView.m */,
+				E372D6211EBF03C100C47D79 /* TBNavigationBarView.h */,
+				E372D6221EBF03C100C47D79 /* TBNavigationBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1255,6 +1270,7 @@
 				E3AA22CD1EB0EFC1006C656D /* UINavigationBar+BFKit.m in Sources */,
 				E3AA224F1EB0ECCC006C656D /* TBFirstView.m in Sources */,
 				E3C1AB3F1EAF982400F1CF16 /* MJProperty.m in Sources */,
+				E372D6231EBF03C100C47D79 /* TBNavigationBarView.m in Sources */,
 				E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */,
 				E3C1AB3D1EAF982400F1CF16 /* MJExtensionConst.m in Sources */,
 				E3AA22C61EB0EFC1006C656D /* UIButton+BFKit.m in Sources */,

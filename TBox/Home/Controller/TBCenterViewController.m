@@ -31,7 +31,8 @@
 
 - (BMKMapView *)mapView {
     if (!_mapView) {
-        _mapView = [[BMKMapView alloc]initWithFrame:self.view.frame];
+        float navBarHeight = self.navigationController.navigationBar.frame.size.height;
+        _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, navBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT-navBarHeight)];
         //开启实时路况
         [_mapView setTrafficEnabled:YES];
         //打开百度城市热力图图层
