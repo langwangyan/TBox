@@ -11,8 +11,10 @@
 
 @interface TBLoginIndexViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameTF;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumTF;
+@property (weak, nonatomic) IBOutlet UITextField *identityCodeTF;
+@property (weak, nonatomic) IBOutlet UIButton *generateIdentifyCodeBtn;
+
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
@@ -23,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initTopBar];
+}
+- (IBAction)generateIdentifyCodeBtnOnclick:(id)sender {
 }
 
 - (IBAction)loginBtnClick:(id)sender {
@@ -34,6 +39,21 @@
     
     TBRegisterViewController *tbRegisterVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_registerVC"];
     [self.navigationController pushViewController:tbRegisterVC animated:YES];
+}
+
+/**初始化顶部bar*/
+- (void) initTopBar {
+    //设置backBarButtonItem
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+    //设置中间文字
+    self.navigationItem.title = @"系统登录";
+    
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+//返回
+- (void) backAction {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

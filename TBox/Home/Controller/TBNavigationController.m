@@ -16,10 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //设置文字的颜色
+    //设置背景色
+    self.navigationBar.barTintColor = [UIColor colorWithRed:25/255. green:182/255. blue:160/255.0 alpha:1];
+    //设置title文字的颜色
     NSDictionary *dic = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:18.f], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationBar.titleTextAttributes = dic;
+    //设置left和right文字颜色
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {

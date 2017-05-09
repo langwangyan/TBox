@@ -63,8 +63,6 @@
 
 /**初始化顶部bar*/
 - (void) initTopBar {
-    //设置背景色
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:25/255. green:182/255. blue:160/255.0 alpha:1];
     //设置左侧button
     UIImage *barImage=[UIImage imageNamed: @"home_bar_left"];
     barImage = [barImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -76,6 +74,9 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     //设置中间文字样式
     self.navigationItem.title = @"途犇出行";
+    
+    //设置backBarButtonItem
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
 
     [self.navigationController setNavigationBarHidden:NO];
 }
@@ -84,6 +85,11 @@
 - (void) initBottomBar {
     //添加左滑button
     [self.view addSubview:self.orderCarBtn];
+}
+
+//返回
+- (void) backAction {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /**判断是App否为首次启动*/

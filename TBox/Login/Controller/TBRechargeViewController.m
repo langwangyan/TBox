@@ -1,38 +1,31 @@
 //
-//  TBRegisterViewController.m
+//  TBRechargeViewController.m
 //  TBox
 //
-//  Created by 王言 on 2017/5/6.
+//  Created by 王言 on 2017/5/9.
 //  Copyright © 2017年 tbox. All rights reserved.
 //
 
-#import "TBRegisterViewController.h"
-#import "TBIDCardVerficationViewController.h"
+#import "TBRechargeViewController.h"
 
-@interface TBRegisterViewController ()
-
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumTF;
-@property (weak, nonatomic) IBOutlet UITextField *identityCodeTF;
-@property (weak, nonatomic) IBOutlet UITextField *inviteCodeTF;
-@property (weak, nonatomic) IBOutlet UIButton *generateIdentityCodeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *submitRegisterBtn;
-
+@interface TBRechargeViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *moneyNumTF;
+@property (weak, nonatomic) IBOutlet UIButton *alipayBtn;
+@property (weak, nonatomic) IBOutlet UIButton *rechargeBtn;
 
 @end
 
-@implementation TBRegisterViewController
+@implementation TBRechargeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self initTopBar];
 }
-- (IBAction)generateIdentityCodeBtnOnClick:(id)sender {
+
+- (IBAction)alipayBtnOnclick:(id)sender {
 }
-- (IBAction)submitRegisterBtnOnclick:(id)sender {
-    
-    TBIDCardVerficationViewController *tbIDCardVerficationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_iDCardVerficationVC"];
-    [self.navigationController pushViewController:tbIDCardVerficationVC animated:YES];
+- (IBAction)rechargeBtnOnclick:(id)sender {
 }
 
 /**初始化顶部bar*/
@@ -40,7 +33,7 @@
     //设置backBarButtonItem
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     //设置中间文字
-    self.navigationItem.title = @"用户注册";
+    self.navigationItem.title = @"充值押金";
     
     [self.navigationController setNavigationBarHidden:NO];
 }

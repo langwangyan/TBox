@@ -1,38 +1,38 @@
 //
-//  TBRegisterViewController.m
+//  TBIDCardVerficationViewController.m
 //  TBox
 //
-//  Created by 王言 on 2017/5/6.
+//  Created by 王言 on 2017/5/9.
 //  Copyright © 2017年 tbox. All rights reserved.
 //
 
-#import "TBRegisterViewController.h"
 #import "TBIDCardVerficationViewController.h"
+#import "TBDriverLicenseViewController.h"
 
-@interface TBRegisterViewController ()
+@interface TBIDCardVerficationViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumTF;
-@property (weak, nonatomic) IBOutlet UITextField *identityCodeTF;
-@property (weak, nonatomic) IBOutlet UITextField *inviteCodeTF;
-@property (weak, nonatomic) IBOutlet UIButton *generateIdentityCodeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *submitRegisterBtn;
-
+@property (weak, nonatomic) IBOutlet UITextField *trueNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *idCardVerficationTF;
+@property (weak, nonatomic) IBOutlet UIImageView *idCardImgView;
+@property (weak, nonatomic) IBOutlet UIButton *updateIDCardBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
 
 @end
 
-@implementation TBRegisterViewController
+@implementation TBIDCardVerficationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self initTopBar];
 }
-- (IBAction)generateIdentityCodeBtnOnClick:(id)sender {
+
+- (IBAction)uploadIDCardBtnOnclick:(id)sender {
 }
-- (IBAction)submitRegisterBtnOnclick:(id)sender {
-    
-    TBIDCardVerficationViewController *tbIDCardVerficationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_iDCardVerficationVC"];
-    [self.navigationController pushViewController:tbIDCardVerficationVC animated:YES];
+
+- (IBAction)nextStepBtnOnclick:(id)sender {
+    TBDriverLicenseViewController *tbDriverLicenseVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_driverLicenseVC"];
+    [self.navigationController pushViewController:tbDriverLicenseVC animated:YES];
 }
 
 /**初始化顶部bar*/
@@ -40,7 +40,7 @@
     //设置backBarButtonItem
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     //设置中间文字
-    self.navigationItem.title = @"用户注册";
+    self.navigationItem.title = @"身份证验证";
     
     [self.navigationController setNavigationBarHidden:NO];
 }
