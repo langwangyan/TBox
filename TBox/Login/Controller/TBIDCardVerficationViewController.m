@@ -9,7 +9,9 @@
 #import "TBIDCardVerficationViewController.h"
 #import "TBDriverLicenseViewController.h"
 
-@interface TBIDCardVerficationViewController ()
+@interface TBIDCardVerficationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property(nonatomic,strong) UIImagePickerController *imagePickerController;
 
 @property (weak, nonatomic) IBOutlet UITextField *trueNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *idCardVerficationTF;
@@ -43,6 +45,16 @@
     self.navigationItem.title = @"身份证验证";
     
     [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (UIImagePickerController *)imagePickerController {
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        _imagePickerController.allowsEditing = YES;
+    }
+    return _imagePickerController;
 }
 
 //返回

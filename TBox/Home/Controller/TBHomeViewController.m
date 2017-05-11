@@ -150,7 +150,7 @@
 //    
     TBUser *user = [TBStoreDataUtil restoreUser];
     
-    if (!user.username && [user.username isEqualToString:@""]) {
+    if (!user.mobile && [user.mobile isEqualToString:@""]) {
         //说明已经登录
         
     }else {

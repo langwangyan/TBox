@@ -15,6 +15,7 @@
 #define NSLog(...)
 #endif
 
+#define API_PRE_URL @"http://153.37.192.13:8051/api/"
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
@@ -39,7 +40,8 @@
 //========工具 start=============
 #import "TBNotificationName.h"
 #import "TBStoreDataUtil.h"
-//========工具 start=============
+#import "AFNetworking.h"
+//========工具 end=============
 
 #endif /* TBoxHeader_pch */
 
