@@ -13,6 +13,7 @@
 
 @property(nonatomic,strong) UIImagePickerController *imagePickerController;
 @property(nonatomic,strong) UIActionSheet *actionSheet;
+@property(nonatomic,strong) UIAlertView *alertView;
 
 @property (weak, nonatomic) IBOutlet UITextField *trueNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *idCardVerficationTF;
@@ -39,6 +40,48 @@
 }
 
 - (IBAction)nextStepBtnOnclick:(id)sender {
+    //上传身份证等信息
+    TBUser *user = [TBStoreDataUtil restoreUser];
+    
+    __weak typeof(self) weakself = self;
+    
+    //注册url
+    NSString *urlStr = [NSString stringWithFormat:@"%@uploadIdCard",API_PRE_URL];
+    NSDictionary *dict =@{@"userId":user.userId,@"realName":self.trueNameTF.text,@"idCardNo":self.idCardVerficationTF.text,@"idCardImgBase64":[TBImageUtil image2Base64Str:self.idCardImgView.image]};
+    
+    // 写请求对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    // 接收的输入类型
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    //post请求
+    [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+    
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+    
+        NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
+        if (responseDict && [responseCode isEqualToString:@"200"]) {
+    
+            NSDictionary *dataDict = responseDict[@"data"];
+    
+            TBIDCardVerficationViewController *tbIDCardVerficationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_iDCardVerficationVC"];
+            [weakself.navigationController pushViewController:tbIDCardVerficationVC animated:YES];
+        }else {
+            weakself.alertView = [[UIAlertView alloc]initWithTitle:@"注册失败" message:responseDict[@"message"] delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [weakself.alertView show];
+    
+            [weakself.navigationController popViewControllerAnimated:YES];
+        }
+    
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"%@",error);
+            weakself.alertView = [[UIAlertView alloc]initWithTitle:@"注册失败" message:@"注册失败，请稍后重试" delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [weakself.alertView show];
+            
+    }];
+    
     TBDriverLicenseViewController *tbDriverLicenseVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_driverLicenseVC"];
     [self.navigationController pushViewController:tbDriverLicenseVC animated:YES];
 }
@@ -106,9 +149,7 @@
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     
-    [self.imagePickerController dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"取消选择");
-    }];
+    [self.imagePickerController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark 图片保存完毕的回调

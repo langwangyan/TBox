@@ -11,6 +11,7 @@
 		E305F9111EBCD740008E17F6 /* TBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9101EBCD740008E17F6 /* TBUser.m */; };
 		E305F9171EBCDCB7008E17F6 /* TBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */; };
 		E305F91D1EBCDDA7008E17F6 /* TBLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */; };
+		E30B4A311EC4B57D001C3FAD /* TBImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */; };
 		E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B791EB238600071A663 /* TBHomeViewController.m */; };
 		E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B801EB23ECD0071A663 /* TBCenterViewController.m */; };
 		E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8A1EB24C260071A663 /* CoreGraphics.framework */; };
@@ -170,6 +171,8 @@
 		E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRegisterViewController.m; sourceTree = "<group>"; };
 		E305F91B1EBCDDA7008E17F6 /* TBLoginIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLoginIndexViewController.h; sourceTree = "<group>"; };
 		E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLoginIndexViewController.m; sourceTree = "<group>"; };
+		E30B4A2F1EC4B57D001C3FAD /* TBImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBImageUtil.h; sourceTree = "<group>"; };
+		E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBImageUtil.m; sourceTree = "<group>"; };
 		E3180B781EB238600071A663 /* TBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHomeViewController.h; sourceTree = "<group>"; };
 		E3180B791EB238600071A663 /* TBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHomeViewController.m; sourceTree = "<group>"; };
 		E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterViewController.h; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 			children = (
 				E305F90B1EBCD59E008E17F6 /* TBStoreDataUtil.h */,
 				E305F90C1EBCD59E008E17F6 /* TBStoreDataUtil.m */,
+				E30B4A2F1EC4B57D001C3FAD /* TBImageUtil.h */,
+				E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1243,6 +1248,7 @@
 				E3AA22461EB0E694006C656D /* TBLeftViewController.m in Sources */,
 				E3C1AB881EAF9A5C00F1CF16 /* UIView+WebCache.m in Sources */,
 				E3AA22DA1EB0EFC1006C656D /* BFDataStructures.m in Sources */,
+				E30B4A311EC4B57D001C3FAD /* TBImageUtil.m in Sources */,
 				E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */,
 				E3AA22C71EB0EFC1006C656D /* UIColor+BFKit.m in Sources */,
 				E3F0E5E11EC2154C001753C9 /* TBRechargeViewController.m in Sources */,

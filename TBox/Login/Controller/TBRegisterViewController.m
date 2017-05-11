@@ -99,7 +99,6 @@
 //        [weakself.alertView show];
 //        
 //    }];
-    
 }
 
 /**初始化顶部bar*/
