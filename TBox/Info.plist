@@ -29,6 +29,10 @@
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>始终允许访问位置信息</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>始终允许访问相册</string>
+	<key>NSCameraUsageDescription</key>
+	<string>始终允许访问相机</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
