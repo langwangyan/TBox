@@ -12,6 +12,13 @@
 		E305F9171EBCDCB7008E17F6 /* TBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */; };
 		E305F91D1EBCDDA7008E17F6 /* TBLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */; };
 		E30B4A311EC4B57D001C3FAD /* TBImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */; };
+		E30B4A331EC4BA02001C3FAD /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A321EC4BA02001C3FAD /* AlipaySDK.framework */; };
+		E30B4A351EC4BA44001C3FAD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A341EC4BA44001C3FAD /* libc++.tbd */; };
+		E30B4A371EC4BA53001C3FAD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A361EC4BA53001C3FAD /* libz.tbd */; };
+		E30B4A391EC4BA7F001C3FAD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A381EC4BA7F001C3FAD /* UIKit.framework */; };
+		E30B4A3B1EC4BA8D001C3FAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A3A1EC4BA8D001C3FAD /* Foundation.framework */; };
+		E30B4A3D1EC4BA97001C3FAD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A3C1EC4BA97001C3FAD /* CFNetwork.framework */; };
+		E30B4A3F1EC4BAA2001C3FAD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A3E1EC4BAA2001C3FAD /* CoreMotion.framework */; };
 		E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B791EB238600071A663 /* TBHomeViewController.m */; };
 		E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B801EB23ECD0071A663 /* TBCenterViewController.m */; };
 		E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8A1EB24C260071A663 /* CoreGraphics.framework */; };
@@ -173,6 +180,13 @@
 		E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLoginIndexViewController.m; sourceTree = "<group>"; };
 		E30B4A2F1EC4B57D001C3FAD /* TBImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBImageUtil.h; sourceTree = "<group>"; };
 		E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBImageUtil.m; sourceTree = "<group>"; };
+		E30B4A321EC4BA02001C3FAD /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = TBox/ThirdFramework/AlipaySDK.framework; sourceTree = "<group>"; };
+		E30B4A341EC4BA44001C3FAD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E30B4A361EC4BA53001C3FAD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E30B4A381EC4BA7F001C3FAD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E30B4A3A1EC4BA8D001C3FAD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E30B4A3C1EC4BA97001C3FAD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E30B4A3E1EC4BAA2001C3FAD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		E3180B781EB238600071A663 /* TBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHomeViewController.h; sourceTree = "<group>"; };
 		E3180B791EB238600071A663 /* TBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHomeViewController.m; sourceTree = "<group>"; };
 		E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterViewController.h; sourceTree = "<group>"; };
@@ -465,6 +479,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E30B4A3F1EC4BAA2001C3FAD /* CoreMotion.framework in Frameworks */,
+				E30B4A3D1EC4BA97001C3FAD /* CFNetwork.framework in Frameworks */,
+				E30B4A3B1EC4BA8D001C3FAD /* Foundation.framework in Frameworks */,
+				E30B4A391EC4BA7F001C3FAD /* UIKit.framework in Frameworks */,
+				E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */,
+				E3180B911EB24C4F0071A663 /* CoreTelephony.framework in Frameworks */,
+				E30B4A371EC4BA53001C3FAD /* libz.tbd in Frameworks */,
+				E30B4A351EC4BA44001C3FAD /* libc++.tbd in Frameworks */,
+				E30B4A331EC4BA02001C3FAD /* AlipaySDK.framework in Frameworks */,
 				E3FA176D1EB8CB320013ECC1 /* libcrypto.a in Frameworks */,
 				E3FA176E1EB8CB320013ECC1 /* libssl.a in Frameworks */,
 				E3FA17641EB8CB0E0013ECC1 /* BaiduMapAPI_Base.framework in Frameworks */,
@@ -475,10 +498,8 @@
 				E3FA17691EB8CB0E0013ECC1 /* BaiduMapAPI_Search.framework in Frameworks */,
 				E3FA176A1EB8CB0E0013ECC1 /* BaiduMapAPI_Utils.framework in Frameworks */,
 				E3FA174E1EB8C9A10013ECC1 /* libstdc++.6.0.9.tbd in Frameworks */,
-				E3180B911EB24C4F0071A663 /* CoreTelephony.framework in Frameworks */,
 				E3FA174C1EB8C98A0013ECC1 /* libsqlite3.0.tbd in Frameworks */,
 				E3FA174A1EB8C97D0013ECC1 /* Security.framework in Frameworks */,
-				E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */,
 				E3180B931EB24C580071A663 /* SystemConfiguration.framework in Frameworks */,
 				E3FA17481EB8C95B0013ECC1 /* OpenGLES.framework in Frameworks */,
 				E3FA17461EB8C9430013ECC1 /* CoreLocation.framework in Frameworks */,
@@ -995,6 +1016,13 @@
 		E3C1AB8A1EAF9AC900F1CF16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E30B4A3E1EC4BAA2001C3FAD /* CoreMotion.framework */,
+				E30B4A3C1EC4BA97001C3FAD /* CFNetwork.framework */,
+				E30B4A3A1EC4BA8D001C3FAD /* Foundation.framework */,
+				E30B4A381EC4BA7F001C3FAD /* UIKit.framework */,
+				E30B4A361EC4BA53001C3FAD /* libz.tbd */,
+				E30B4A341EC4BA44001C3FAD /* libc++.tbd */,
+				E30B4A321EC4BA02001C3FAD /* AlipaySDK.framework */,
 				E3FA176B1EB8CB320013ECC1 /* libcrypto.a */,
 				E3FA176C1EB8CB320013ECC1 /* libssl.a */,
 				E3FA175D1EB8CB0E0013ECC1 /* BaiduMapAPI_Base.framework */,
