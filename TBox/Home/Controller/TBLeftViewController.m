@@ -72,6 +72,7 @@
     UIGraphicsEndImageContext();
     
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     return cell;
 }
@@ -102,8 +103,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *viewController;
     
+    //点击之后去掉灰色背景
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    UIViewController *viewController;
+
     switch (indexPath.row) {
         case 0:
             viewController = [[UIViewController alloc] init];
