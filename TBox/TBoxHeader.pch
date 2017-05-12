@@ -19,7 +19,7 @@
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-#define LEFTVIEW_WIDTH SCREEN_WIDTH*2/3
+#define LEFTVIEW_WIDTH SCREEN_WIDTH*4/5
 #define NAVBAR_HEIGHT 50
 
 //========百度地图相关start=============

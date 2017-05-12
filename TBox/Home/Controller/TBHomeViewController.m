@@ -127,10 +127,14 @@
 
 - (UIButton *)orderCarBtn {
     if (!_orderCarBtn) {
-        _orderCarBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/3, SCREEN_HEIGHT-150, SCREEN_WIDTH/3, 50)];
-        [_orderCarBtn setTitle:@"点击约车" forState:UIControlStateNormal];
-        [_orderCarBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_orderCarBtn setBackgroundColor:[UIColor whiteColor]];
+        _orderCarBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/5, SCREEN_HEIGHT-100, SCREEN_WIDTH*3/5, 50)];
+        [_orderCarBtn setTitle:@"一键用车" forState:UIControlStateNormal];
+        [_orderCarBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _orderCarBtn.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+        [_orderCarBtn setBackgroundColor:[UIColor colorWithRed:231/255.0 green:111/255.0 blue:8/255.0 alpha:.8]];
+        
+        _orderCarBtn.clipsToBounds = YES;
+        _orderCarBtn.layer.cornerRadius=15;
         [_orderCarBtn addTarget:self action:@selector(orderCarBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _orderCarBtn;
