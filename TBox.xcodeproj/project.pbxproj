@@ -149,6 +149,7 @@
 		E3C1ABC61EAF9E2300F1CF16 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C1ABB51EAF9E2300F1CF16 /* UIProgressView+AFNetworking.m */; };
 		E3C1ABC71EAF9E2300F1CF16 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C1ABB71EAF9E2300F1CF16 /* UIRefreshControl+AFNetworking.m */; };
 		E3C1ABC81EAF9E2300F1CF16 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C1ABB91EAF9E2300F1CF16 /* UIWebView+AFNetworking.m */; };
+		E3DF766D1EC6E00100D07149 /* TBShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DF766C1EC6E00100D07149 /* TBShareViewController.m */; };
 		E3F0E5DB1EC2127A001753C9 /* TBIDCardVerficationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0E5DA1EC2127A001753C9 /* TBIDCardVerficationViewController.m */; };
 		E3F0E5DE1EC21467001753C9 /* TBDriverLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0E5DD1EC21467001753C9 /* TBDriverLicenseViewController.m */; };
 		E3F0E5E11EC2154C001753C9 /* TBRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F0E5E01EC2154C001753C9 /* TBRechargeViewController.m */; };
@@ -451,6 +452,8 @@
 		E3C1ABB71EAF9E2300F1CF16 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		E3C1ABB81EAF9E2300F1CF16 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		E3C1ABB91EAF9E2300F1CF16 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		E3DF766B1EC6E00100D07149 /* TBShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBShareViewController.h; sourceTree = "<group>"; };
+		E3DF766C1EC6E00100D07149 /* TBShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBShareViewController.m; sourceTree = "<group>"; };
 		E3F0E5D91EC2127A001753C9 /* TBIDCardVerficationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBIDCardVerficationViewController.h; sourceTree = "<group>"; };
 		E3F0E5DA1EC2127A001753C9 /* TBIDCardVerficationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBIDCardVerficationViewController.m; sourceTree = "<group>"; };
 		E3F0E5DC1EC21467001753C9 /* TBDriverLicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBDriverLicenseViewController.h; sourceTree = "<group>"; };
@@ -595,6 +598,7 @@
 				E305F9121EBCDC2A008E17F6 /* Login */,
 				E375826D1EAE5B3A006B9A53 /* Launch */,
 				E3AA22321EB0DF1B006C656D /* Home */,
+				E3DF76691EC6DFBE00D07149 /* PersonalCenter */,
 				E372D61F1EBF017C00C47D79 /* NotificationCenter */,
 				E305F90A1EBCD50B008E17F6 /* Util */,
 				E37582551EAE59FF006B9A53 /* Main.storyboard */,
@@ -1114,6 +1118,23 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		E3DF76691EC6DFBE00D07149 /* PersonalCenter */ = {
+			isa = PBXGroup;
+			children = (
+				E3DF766A1EC6DFEE00D07149 /* Controller */,
+			);
+			path = PersonalCenter;
+			sourceTree = "<group>";
+		};
+		E3DF766A1EC6DFEE00D07149 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3DF766B1EC6E00100D07149 /* TBShareViewController.h */,
+				E3DF766C1EC6E00100D07149 /* TBShareViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1245,6 +1266,7 @@
 				E3AA22DE1EB0EFC1006C656D /* BFTextField.m in Sources */,
 				E3AA22CE1EB0EFC1006C656D /* UIScreen+BFKit.m in Sources */,
 				E3C1AB241EAF97C300F1CF16 /* UIView+MJExtension.m in Sources */,
+				E3DF766D1EC6E00100D07149 /* TBShareViewController.m in Sources */,
 				E3C1AB161EAF97C300F1CF16 /* MJRefreshAutoGifFooter.m in Sources */,
 				E3C1AB221EAF97C300F1CF16 /* UIScrollView+MJExtension.m in Sources */,
 				E3C1AB121EAF97C300F1CF16 /* MJRefreshBackFooter.m in Sources */,

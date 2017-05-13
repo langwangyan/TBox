@@ -7,6 +7,7 @@
 //
 
 #import "TBLeftViewController.h"
+#import "TBShareViewController.h"
 
 @interface TBLeftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -107,19 +108,28 @@
     //点击之后去掉灰色背景
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    UIViewController *viewController;
+    if ([self.menuArray[indexPath.row] isEqualToString:@"我的行程"]) {
+        
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的钱包"]) {
+        
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"分享有礼"]) {
+        TBShareViewController *shareVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_shareVC"];
+        
+        [self.navigationController pushViewController:shareVC animated:YES];
 
-    switch (indexPath.row) {
-        case 0:
-            viewController = [[UIViewController alloc] init];
-            break;
-        case 1:
-            viewController = [[UIViewController alloc] init];
-            break;
-        default:
-            break;
+        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+            [self.delegate pushVC:shareVC];
+        }
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"用户指南"]) {
+        
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的消息"]) {
+        
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"救援中心"]) {
+        
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"设置"]) {
+        
     }
-    
+
 }
 
 @end

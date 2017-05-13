@@ -25,6 +25,70 @@
             </objects>
             <point key="canvasLocation" x="840" y="95"/>
         </scene>
+        <!--Share View Controller-->
+        <scene sceneID="g0d-gg-JwK">
+            <objects>
+                <viewController storyboardIdentifier="tb_shareVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uzO-tx-4NB" customClass="TBShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pG1-2p-JUb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qwt-8T-aio"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8qP-ml-0yh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1d-E1-QPM">
+                                <rect key="frame" x="39" y="28" width="242" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyi-Yh-zYb">
+                                <rect key="frame" x="53" y="251" width="214" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckU-JP-cj3">
+                                <rect key="frame" x="139" y="359" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.76470588235294112" green="0.76470588235294112" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbP-aF-cqk">
+                                <rect key="frame" x="139" y="408" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26S-tI-MzM">
+                                <rect key="frame" x="59" y="440" width="202" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.52549019607843139" green="0.74117647058823533" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="分享有礼">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareBtnOnclick:" destination="uzO-tx-4NB" eventType="touchUpInside" id="6rr-Mx-vut"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="introLabel" destination="iyi-Yh-zYb" id="128-c9-osY"/>
+                        <outlet property="shareBtn" destination="26S-tI-MzM" id="bdD-kH-bBX"/>
+                        <outlet property="shareCodeLabel" destination="LbP-aF-cqk" id="Fxd-bO-Cpr"/>
+                        <outlet property="shareContastLabel" destination="ckU-JP-cj3" id="uzc-sl-n8N"/>
+                        <outlet property="topImageView" destination="X1d-E1-QPM" id="Kp1-Za-6Cv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kCk-ix-YSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623.75" y="-608.45070422535207"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="Htt-eZ-PI2">
             <objects>

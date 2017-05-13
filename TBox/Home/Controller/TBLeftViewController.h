@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TBLeftViewControllerDelegate <NSObject>
+
+@optional
+-(void) pushVC:(UIViewController *)leftSonVC;
+
+@end
+
 @interface TBLeftViewController : UIViewController
+
+@property(nonatomic,weak) id<TBLeftViewControllerDelegate> delegate;
 
 @end
 

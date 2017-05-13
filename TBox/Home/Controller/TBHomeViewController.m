@@ -9,7 +9,7 @@
 #import "TBHomeViewController.h"
 #import "TBLoginIndexViewController.h"
 
-@interface TBHomeViewController ()
+@interface TBHomeViewController ()<TBLeftViewControllerDelegate>
 
 @property(nonatomic,strong) TBFirstView *firstView;
 @property(nonatomic,strong) TBSecondView *secondView;
@@ -120,7 +120,9 @@
         //滑动手势
         UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
         [_leftVC.view addGestureRecognizer:pan];
-
+        
+        //设置代理
+        _leftVC.delegate=self;
     }
     return _leftVC;
 }
@@ -217,6 +219,13 @@
     [self.view bringSubviewToFront:self.leftVC.view];
     [UIView commitAnimations];
     
+}
+
+#pragma leftVCdelegate
+-(void) pushVC:(UIViewController *)leftSonVC {
+    
+    [self showMainView];
+    [self.navigationController pushViewController:leftSonVC animated:YES];
 }
 
 @end
