@@ -8,6 +8,7 @@
 
 #import "TBLeftViewController.h"
 #import "TBShareViewController.h"
+#import "TBWallentViewController.h"
 
 @interface TBLeftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -111,12 +112,14 @@
     if ([self.menuArray[indexPath.row] isEqualToString:@"我的行程"]) {
         
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的钱包"]) {
+        TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
         
+        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+            [self.delegate pushVC:wallentVC];
+        }
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"分享有礼"]) {
         TBShareViewController *shareVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_shareVC"];
         
-        [self.navigationController pushViewController:shareVC animated:YES];
-
         if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
             [self.delegate pushVC:shareVC];
         }
