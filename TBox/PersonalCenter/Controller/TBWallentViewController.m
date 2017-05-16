@@ -12,8 +12,11 @@
 #import "TBCouponViewController.h"
 #import "TBPayPassWordViewController.h"
 
+#define WALLENT_API @"getMyWallet"
+
 @interface TBWallentViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) NSArray *menuArray;
+@property(nonatomic,strong) NSArray *rightStrArray;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -33,6 +36,39 @@
 //初始化data
 -(void)initData{
     _menuArray = [NSArray arrayWithObjects:@"保证金",@"账户余额",@"优惠卡券",@"支付密码", nil];
+    //获取短信验证码
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,WALLENT_API];
+    TBUser *user = [TBStoreDataUtil restoreUser];
+    NSDictionary *dict =@{@"userId":user.userId};
+    __weak typeof(self) weakself = self;
+    
+    // 写请求对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    // 接收的输入类型
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    //post请求
+    [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
+        if (responseDict && [responseCode isEqualToString:@"200"]) {
+        
+            NSDictionary *dataDict = responseDict[@"data"];
+            _rightStrArray = [NSArray arrayWithObjects:[NSString stringWithFormat:@"￥%@",dataDict[@"deposit"]],[NSString stringWithFormat:@"￥%@",dataDict[@"balance"]],[NSString stringWithFormat:@"%@张",dataDict[@"couponNum"]], nil];
+        }else {
+            [TBProgressUtil showToast2View:weakself.view WithMsg:responseDict[@"message"]];
+            _rightStrArray = [NSArray arrayWithObjects:@"￥0",@"￥0",@"0张", nil];
+        }
+        
+        [weakself.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [TBProgressUtil showToast2View:weakself.view WithMsg:error.description];
+    }];
+
 }
 //初始化tableView
 -(void)initTableView{
@@ -88,14 +124,10 @@
     [cell.contentView addSubview:rightLabel];
     rightLabel.textColor = [UIColor orangeColor];
     
-    if ([cellStr isEqualToString:@"保证金"]) {
-        rightLabel.text = @"￥10.0";
-    }else if ([cellStr isEqualToString:@"账户余额"]){
-        rightLabel.text = @"￥10.0";
-    }else if ([cellStr isEqualToString:@"优惠卡券"]){
-       rightLabel.text = @"1张";
-    }else if ([cellStr isEqualToString:@"支付密码"]){
+    if ([cellStr isEqualToString:@"支付密码"]){
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
+    }else {
+        rightLabel.text = self.rightStrArray[indexPath.row];
     }
     
     return cell;

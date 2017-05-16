@@ -47,6 +47,7 @@
 #import "TBStoreDataUtil.h"
 #import "AFNetworking.h"
 #import "TBImageUtil.h"
+#import "TBProgressUtil.h"
 //========工具 end=============
 
 #endif /* TBoxHeader_pch */

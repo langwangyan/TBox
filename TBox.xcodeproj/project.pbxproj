@@ -19,6 +19,7 @@
 		E30B4A3B1EC4BA8D001C3FAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A3A1EC4BA8D001C3FAD /* Foundation.framework */; };
 		E30B4A3D1EC4BA97001C3FAD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A3C1EC4BA97001C3FAD /* CFNetwork.framework */; };
 		E30B4A3F1EC4BAA2001C3FAD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A3E1EC4BAA2001C3FAD /* CoreMotion.framework */; };
+		E3134BF31ECB4DCD0021E0D4 /* TBProgressUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E3134BF21ECB4DCD0021E0D4 /* TBProgressUtil.m */; };
 		E3180B7A1EB238600071A663 /* TBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B791EB238600071A663 /* TBHomeViewController.m */; };
 		E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3180B801EB23ECD0071A663 /* TBCenterViewController.m */; };
 		E3180B8B1EB24C260071A663 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8A1EB24C260071A663 /* CoreGraphics.framework */; };
@@ -193,6 +194,8 @@
 		E30B4A3A1EC4BA8D001C3FAD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E30B4A3C1EC4BA97001C3FAD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E30B4A3E1EC4BAA2001C3FAD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E3134BF11ECB4DCC0021E0D4 /* TBProgressUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBProgressUtil.h; sourceTree = "<group>"; };
+		E3134BF21ECB4DCD0021E0D4 /* TBProgressUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBProgressUtil.m; sourceTree = "<group>"; };
 		E3180B781EB238600071A663 /* TBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHomeViewController.h; sourceTree = "<group>"; };
 		E3180B791EB238600071A663 /* TBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHomeViewController.m; sourceTree = "<group>"; };
 		E3180B7F1EB23ECD0071A663 /* TBCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterViewController.h; sourceTree = "<group>"; };
@@ -536,6 +539,8 @@
 				E305F90C1EBCD59E008E17F6 /* TBStoreDataUtil.m */,
 				E30B4A2F1EC4B57D001C3FAD /* TBImageUtil.h */,
 				E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */,
+				E3134BF11ECB4DCC0021E0D4 /* TBProgressUtil.h */,
+				E3134BF21ECB4DCD0021E0D4 /* TBProgressUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1371,6 +1376,7 @@
 				E3180B811EB23ECD0071A663 /* TBCenterViewController.m in Sources */,
 				E3C1AB3D1EAF982400F1CF16 /* MJExtensionConst.m in Sources */,
 				E3AA22C61EB0EFC1006C656D /* UIButton+BFKit.m in Sources */,
+				E3134BF31ECB4DCD0021E0D4 /* TBProgressUtil.m in Sources */,
 				E375824E1EAE59FF006B9A53 /* main.m in Sources */,
 				E3C1AB111EAF97C300F1CF16 /* MJRefreshAutoFooter.m in Sources */,
 				E3AA22BA1EB0EFC0006C656D /* NSData+BFKit.m in Sources */,

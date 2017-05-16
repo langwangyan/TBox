@@ -9,6 +9,10 @@
 #import "TBBalanceViewController.h"
 
 @interface TBBalanceViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *balanceTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *balanceNumLabel;
+@property (weak, nonatomic) IBOutlet UIButton *rechargeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *withdrawBtn;
 
 @end
 
@@ -18,7 +22,27 @@
     [super viewDidLoad];
     
     [self initTopBar];
+    [self initBalanceView];
 }
+//初始化view
+- (void) initBalanceView {
+    //冻结保证金label
+    self.balanceTipLabel.text = @"已冻结保证金";
+    [self.balanceTipLabel setFrame:CGRectMake(20, 64+20, SCREEN_WIDTH-40, 30)];
+    
+    //保证金金额
+    self.balanceNumLabel.text = [NSString stringWithFormat:@"￥%@",@"100000"];
+    [self.balanceNumLabel setFrame:CGRectMake(20, self.balanceTipLabel.frame.origin.y+self.balanceTipLabel.frame.size.height+10, SCREEN_WIDTH-40, 30)];
+    
+    //充值保证金btn
+    [self.rechargeBtn setTitle:@"余额充值" forState:UIControlStateNormal];
+    [self.rechargeBtn setFrame:CGRectMake(30, self.balanceNumLabel.frame.origin.y+self.balanceNumLabel.frame.size.height+20, SCREEN_WIDTH-60, 40)];
+    
+    //余额提现btn
+    [self.withdrawBtn setTitle:@"保证金提现" forState:UIControlStateNormal];
+    [self.withdrawBtn setFrame:CGRectMake(30, self.rechargeBtn.frame.origin.y+self.rechargeBtn.frame.size.height+20, SCREEN_WIDTH-60, 40)];
+}
+
 //初始化顶部bar
 - (void) initTopBar {
     //设置backBarButtonItem
@@ -38,6 +62,12 @@
 //显示账单VC
 - (void) showBillView{
     
+}
+//余额充值
+- (IBAction)rechargeBtnOnclick:(id)sender {
+}
+//余额提现
+- (IBAction)withdrawBtnOnclick:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {
