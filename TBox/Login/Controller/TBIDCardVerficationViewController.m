@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *updateIDCardBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
 
+@property(nonatomic,strong) TBRegisterStatusView *registerView;
+
 @end
 
 @implementation TBIDCardVerficationViewController
@@ -29,6 +31,14 @@
     [super viewDidLoad];
     
     [self initTopBar];
+    [self initView];
+}
+//初始化view
+-(void)initView {
+    self.registerView = [[TBRegisterStatusView alloc]initWithStatus:2];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    
+    [self.view addSubview:self.registerView];
 }
 
 - (IBAction)uploadIDCardBtnOnclick:(id)sender {

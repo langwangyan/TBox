@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *archivesNumTF;
 @property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
 
+@property(nonatomic,strong) TBRegisterStatusView *registerView;
 
 @end
 
@@ -25,7 +26,17 @@
     [super viewDidLoad];
     
     [self initTopBar];
+    [self initView];
 }
+
+//初始化view
+-(void)initView {
+    self.registerView = [[TBRegisterStatusView alloc]initWithStatus:3];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    
+    [self.view addSubview:self.registerView];
+}
+
 - (IBAction)nextStepBtnOnclick:(id)sender {
     TBRechargeViewController *tbRechargeVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_rechargeVC"];
     [self.navigationController pushViewController:tbRechargeVC animated:YES];

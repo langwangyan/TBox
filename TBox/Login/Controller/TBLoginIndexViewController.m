@@ -11,6 +11,7 @@
 
 @interface TBLoginIndexViewController ()
 
+@property(nonatomic,strong) TBRegisterStatusView *registerView;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTF;
 @property (weak, nonatomic) IBOutlet UITextField *identityCodeTF;
 @property (weak, nonatomic) IBOutlet UIButton *generateIdentifyCodeBtn;
@@ -24,8 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self initTopBar];
+    [self initView];
 }
 - (IBAction)generateIdentifyCodeBtnOnclick:(id)sender {
 }
@@ -41,7 +42,7 @@
     [self.navigationController pushViewController:tbRegisterVC animated:YES];
 }
 
-/**初始化顶部bar*/
+//初始化顶部bar
 - (void) initTopBar {
     //设置backBarButtonItem
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
@@ -49,6 +50,16 @@
     self.navigationItem.title = @"系统登录";
     
     [self.navigationController setNavigationBarHidden:NO];
+}
+
+//初始化view
+-(void)initView {
+    self.registerView = [[TBRegisterStatusView alloc]initWithStatus:0];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    
+    [self.view addSubview:self.registerView];
+    
+    
 }
 
 //返回

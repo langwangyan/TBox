@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *alipayBtn;
 @property (weak, nonatomic) IBOutlet UIButton *rechargeBtn;
 
+@property(nonatomic,strong) TBRegisterStatusView *registerView;
 @end
 
 @implementation TBRechargeViewController
@@ -21,6 +22,15 @@
     [super viewDidLoad];
     
     [self initTopBar];
+    [self initView];
+}
+
+//初始化view
+-(void)initView {
+    self.registerView = [[TBRegisterStatusView alloc]initWithStatus:4];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    
+    [self.view addSubview:self.registerView];
 }
 
 - (IBAction)alipayBtnOnclick:(id)sender {

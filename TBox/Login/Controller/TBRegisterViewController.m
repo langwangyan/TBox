@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *generateIdentityCodeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitRegisterBtn;
 
+@property(nonatomic,strong) TBRegisterStatusView *registerView;
 @property(nonatomic,strong) UIAlertView *alertView;
 
 @end
@@ -27,9 +28,20 @@
     [super viewDidLoad];
     
     [self initTopBar];
+    [self initView];
     
     self.alertView.delegate = self;
 }
+
+//初始化view
+-(void)initView {
+    self.registerView = [[TBRegisterStatusView alloc]initWithStatus:1];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    
+    [self.view addSubview:self.registerView];
+    
+}
+
 - (IBAction)generateIdentityCodeBtnOnClick:(id)sender {
     //获取短信验证码
     NSString *urlStr = [NSString stringWithFormat:@"%@getCheckCode",API_PRE_URL];

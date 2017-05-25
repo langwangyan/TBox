@@ -26,10 +26,11 @@
 		E3180B8D1EB24C3A0071A663 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B8C1EB24C3A0071A663 /* QuartzCore.framework */; };
 		E3180B911EB24C4F0071A663 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B901EB24C4F0071A663 /* CoreTelephony.framework */; };
 		E3180B931EB24C580071A663 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3180B921EB24C580071A663 /* SystemConfiguration.framework */; };
+		E31E50A41ECF34D200D8B0C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31E50A31ECF34D200D8B0C3 /* Assets.xcassets */; };
+		E31E50A71ECF3A9B00D8B0C3 /* TBRegisterStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = E31E50A61ECF3A9B00D8B0C3 /* TBRegisterStatusView.m */; };
 		E375824E1EAE59FF006B9A53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E375824D1EAE59FF006B9A53 /* main.m */; };
 		E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E37582501EAE59FF006B9A53 /* AppDelegate.m */; };
 		E37582571EAE59FF006B9A53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37582551EAE59FF006B9A53 /* Main.storyboard */; };
-		E37582591EAE59FF006B9A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37582581EAE59FF006B9A53 /* Assets.xcassets */; };
 		E375827B1EAE5DE9006B9A53 /* TBSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = E375827A1EAE5DE9006B9A53 /* TBSecondView.m */; };
 		E37FE8D71ECA02E5002E6D46 /* TBBondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8D61ECA02E5002E6D46 /* TBBondViewController.m */; };
 		E37FE8DA1ECA04F2002E6D46 /* TBBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8D91ECA04F2002E6D46 /* TBBalanceViewController.m */; };
@@ -37,7 +38,6 @@
 		E37FE8E01ECA0676002E6D46 /* TBPayPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8DF1ECA0676002E6D46 /* TBPayPassWordViewController.m */; };
 		E3AA22461EB0E694006C656D /* TBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22421EB0E694006C656D /* TBLeftViewController.m */; };
 		E3AA22471EB0E694006C656D /* TBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22441EB0E694006C656D /* TBNavigationController.m */; };
-		E3AA224C1EB0E718006C656D /* TBIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA224B1EB0E718006C656D /* TBIndexView.m */; };
 		E3AA224F1EB0ECCC006C656D /* TBFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA224E1EB0ECCC006C656D /* TBFirstView.m */; };
 		E3AA22551EB0ED0A006C656D /* IMG_0123.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E3AA22511EB0ED0A006C656D /* IMG_0123.JPG */; };
 		E3AA22561EB0ED0A006C656D /* IMG_0128.JPG in Resources */ = {isa = PBXBuildFile; fileRef = E3AA22521EB0ED0A006C656D /* IMG_0128.JPG */; };
@@ -204,13 +204,15 @@
 		E3180B8C1EB24C3A0071A663 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E3180B901EB24C4F0071A663 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E3180B921EB24C580071A663 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E31E50A31ECF34D200D8B0C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E31E50A51ECF3A9B00D8B0C3 /* TBRegisterStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBRegisterStatusView.h; sourceTree = "<group>"; };
+		E31E50A61ECF3A9B00D8B0C3 /* TBRegisterStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRegisterStatusView.m; sourceTree = "<group>"; };
 		E372D6201EBF017C00C47D79 /* TBNotificationName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNotificationName.h; sourceTree = "<group>"; };
 		E37582491EAE59FF006B9A53 /* TBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E375824D1EAE59FF006B9A53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E375824F1EAE59FF006B9A53 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E37582501EAE59FF006B9A53 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E37582561EAE59FF006B9A53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E37582581EAE59FF006B9A53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E375825D1EAE59FF006B9A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E37582791EAE5DE9006B9A53 /* TBSecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSecondView.h; sourceTree = "<group>"; };
 		E375827A1EAE5DE9006B9A53 /* TBSecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSecondView.m; sourceTree = "<group>"; };
@@ -227,8 +229,6 @@
 		E3AA22421EB0E694006C656D /* TBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLeftViewController.m; sourceTree = "<group>"; };
 		E3AA22431EB0E694006C656D /* TBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNavigationController.h; sourceTree = "<group>"; };
 		E3AA22441EB0E694006C656D /* TBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBNavigationController.m; sourceTree = "<group>"; };
-		E3AA224A1EB0E718006C656D /* TBIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBIndexView.h; sourceTree = "<group>"; };
-		E3AA224B1EB0E718006C656D /* TBIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBIndexView.m; sourceTree = "<group>"; };
 		E3AA224D1EB0ECCC006C656D /* TBFirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFirstView.h; sourceTree = "<group>"; };
 		E3AA224E1EB0ECCC006C656D /* TBFirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFirstView.m; sourceTree = "<group>"; };
 		E3AA22511EB0ED0A006C656D /* IMG_0123.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0123.JPG; sourceTree = "<group>"; };
@@ -583,6 +583,8 @@
 		E305F9141EBCDC9A008E17F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E31E50A51ECF3A9B00D8B0C3 /* TBRegisterStatusView.h */,
+				E31E50A61ECF3A9B00D8B0C3 /* TBRegisterStatusView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -622,8 +624,8 @@
 				E372D61F1EBF017C00C47D79 /* NotificationCenter */,
 				E305F90A1EBCD50B008E17F6 /* Util */,
 				E37582551EAE59FF006B9A53 /* Main.storyboard */,
-				E37582581EAE59FF006B9A53 /* Assets.xcassets */,
 				E375825D1EAE59FF006B9A53 /* Info.plist */,
+				E31E50A31ECF34D200D8B0C3 /* Assets.xcassets */,
 				E3C1AAE11EAF97B000F1CF16 /* ThirdFramework */,
 				E375824C1EAE59FF006B9A53 /* Supporting Files */,
 			);
@@ -689,8 +691,6 @@
 		E3AA22491EB0E6F9006C656D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E3AA224A1EB0E718006C656D /* TBIndexView.h */,
-				E3AA224B1EB0E718006C656D /* TBIndexView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1235,9 +1235,9 @@
 			files = (
 				E3AA22581EB0ED0A006C656D /* IMG_0137.JPG in Resources */,
 				E3FA175C1EB8CAB90013ECC1 /* mapapi.bundle in Resources */,
+				E31E50A41ECF34D200D8B0C3 /* Assets.xcassets in Resources */,
 				E3AA22561EB0ED0A006C656D /* IMG_0128.JPG in Resources */,
 				E3C1AB3C1EAF982400F1CF16 /* Info.plist in Resources */,
-				E37582591EAE59FF006B9A53 /* Assets.xcassets in Resources */,
 				E37582571EAE59FF006B9A53 /* Main.storyboard in Resources */,
 				E3AA22E01EB0EFC1006C656D /* BFKit.strings in Resources */,
 				E3AA22551EB0ED0A006C656D /* IMG_0123.JPG in Resources */,
@@ -1359,8 +1359,8 @@
 				E3C1AB431EAF982400F1CF16 /* NSObject+MJCoding.m in Sources */,
 				E3AA22D21EB0EFC1006C656D /* UITextView+BFKit.m in Sources */,
 				E3C1AB861EAF9A5C00F1CF16 /* UIImageView+HighlightedWebCache.m in Sources */,
+				E31E50A71ECF3A9B00D8B0C3 /* TBRegisterStatusView.m in Sources */,
 				E3C1AB141EAF97C300F1CF16 /* MJRefreshFooter.m in Sources */,
-				E3AA224C1EB0E718006C656D /* TBIndexView.m in Sources */,
 				E3C1AB4A1EAF999400F1CF16 /* MBProgressHUD.m in Sources */,
 				E3C1AB821EAF9A5C00F1CF16 /* UIButton+WebCache.m in Sources */,
 				E3C1AB231EAF97C300F1CF16 /* UIScrollView+MJRefresh.m in Sources */,
