@@ -9,11 +9,14 @@
 #import "TBRegisterViewController.h"
 #import "TBIDCardVerficationViewController.h"
 
+#define MARGIN 20.f
+
 @interface TBRegisterViewController ()<UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTF;
 @property (weak, nonatomic) IBOutlet UITextField *identityCodeTF;
 @property (weak, nonatomic) IBOutlet UITextField *inviteCodeTF;
+@property (weak, nonatomic) IBOutlet UILabel *chooseLabel;
 @property (weak, nonatomic) IBOutlet UIButton *generateIdentityCodeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *submitRegisterBtn;
 
@@ -36,10 +39,19 @@
 //初始化view
 -(void)initView {
     self.registerView = [[TBRegisterStatusView alloc]initWithStatus:1];
-    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 60)];
     
     [self.view addSubview:self.registerView];
     
+    [self.phoneNumTF setFrame:CGRectMake(MARGIN, self.registerView.frame.origin.y+self.registerView.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 30)];
+    [self.identityCodeTF setFrame:CGRectMake(MARGIN, self.phoneNumTF.frame.origin.y+self.phoneNumTF.frame.size.height+5, SCREEN_WIDTH-MARGIN*3-100, 30)];
+    [self.generateIdentityCodeBtn setFrame:CGRectMake(MARGIN+self.identityCodeTF.frame.size.width+self.identityCodeTF.frame.origin.x, self.phoneNumTF.frame.origin.y+self.phoneNumTF.frame.size.height+5, 100, 30)];
+    
+    [self.inviteCodeTF setFrame:CGRectMake(MARGIN, self.identityCodeTF.frame.origin.y+self.identityCodeTF.frame.size.height+5, SCREEN_WIDTH-MARGIN*3-100, 30)];
+    
+    [self.chooseLabel setFrame:CGRectMake(MARGIN+self.inviteCodeTF.frame.size.width+self.inviteCodeTF.frame.origin.x, self.identityCodeTF.frame.origin.y+self.identityCodeTF.frame.size.height+5, 100, 30)];
+    
+    [self.submitRegisterBtn setFrame:CGRectMake((SCREEN_WIDTH-100)/2, self.inviteCodeTF.frame.size.height+self.inviteCodeTF.frame.origin.y+5, 100, 30)];
 }
 
 - (IBAction)generateIdentityCodeBtnOnClick:(id)sender {

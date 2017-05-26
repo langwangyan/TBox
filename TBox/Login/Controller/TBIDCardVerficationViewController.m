@@ -9,6 +9,8 @@
 #import "TBIDCardVerficationViewController.h"
 #import "TBDriverLicenseViewController.h"
 
+#define MARGIN 20.f
+
 @interface TBIDCardVerficationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIActionSheetDelegate>
 
 @property(nonatomic,strong) UIImagePickerController *imagePickerController;
@@ -17,9 +19,11 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *trueNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *idCardVerficationTF;
+@property (weak, nonatomic) IBOutlet UILabel *idCardLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *idCardImgView;
 @property (weak, nonatomic) IBOutlet UIButton *updateIDCardBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
+@property (weak, nonatomic) IBOutlet UIButton *idCardTipLabel;
 
 @property(nonatomic,strong) TBRegisterStatusView *registerView;
 
@@ -36,9 +40,19 @@
 //初始化view
 -(void)initView {
     self.registerView = [[TBRegisterStatusView alloc]initWithStatus:2];
-    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 60)];
     
     [self.view addSubview:self.registerView];
+    
+    [self.trueNameTF setFrame:CGRectMake(MARGIN, self.registerView.frame.origin.y+self.registerView.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 30)];
+    [self.idCardVerficationTF setFrame:CGRectMake(MARGIN, self.trueNameTF.frame.origin.y+self.trueNameTF.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 30)];
+    [self.idCardLabel setFrame:CGRectMake((SCREEN_WIDTH-100)/2, self.idCardVerficationTF.frame.origin.y+self.idCardVerficationTF.frame.size.height+5, 100, 30)];
+    [self.idCardImgView setFrame:CGRectMake(MARGIN, self.idCardLabel.frame.origin.y+self.idCardLabel.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 150)];
+    [self.updateIDCardBtn setFrame:CGRectMake((SCREEN_WIDTH-100)/2, self.idCardImgView.frame.origin.y+self.idCardImgView.frame.size.height+5, 100, 30)];
+    
+    [self.idCardTipLabel setFrame:CGRectMake((SCREEN_WIDTH-250)/2, self.updateIDCardBtn.frame.origin.y+self.updateIDCardBtn.frame.size.height+10, 250, 30)];
+    
+    [self.nextStepBtn setFrame:CGRectMake((SCREEN_WIDTH-100)/2, self.idCardTipLabel.frame.size.height+self.idCardTipLabel.frame.origin.y+5, 100, 40)];
 }
 
 - (IBAction)uploadIDCardBtnOnclick:(id)sender {
@@ -51,46 +65,46 @@
 
 - (IBAction)nextStepBtnOnclick:(id)sender {
     //上传身份证等信息
-    TBUser *user = [TBStoreDataUtil restoreUser];
-    
-    __weak typeof(self) weakself = self;
-    
-    //注册url
-    NSString *urlStr = [NSString stringWithFormat:@"%@uploadIdCard",API_PRE_URL];
-    NSDictionary *dict =@{@"userId":user.userId,@"realName":self.trueNameTF.text,@"idCardNo":self.idCardVerficationTF.text,@"idCardImgBase64":[TBImageUtil image2Base64Str:self.idCardImgView.image]};
-    
-    // 写请求对象
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    // 接收的输入类型
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    //post请求
-    [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
-    
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-    
-        NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
-        if (responseDict && [responseCode isEqualToString:@"200"]) {
-    
-            NSDictionary *dataDict = responseDict[@"data"];
-    
-            TBIDCardVerficationViewController *tbIDCardVerficationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_iDCardVerficationVC"];
-            [weakself.navigationController pushViewController:tbIDCardVerficationVC animated:YES];
-        }else {
-            weakself.alertView = [[UIAlertView alloc]initWithTitle:@"注册失败" message:responseDict[@"message"] delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [weakself.alertView show];
-    
-            [weakself.navigationController popViewControllerAnimated:YES];
-        }
-    
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"%@",error);
-            weakself.alertView = [[UIAlertView alloc]initWithTitle:@"注册失败" message:@"注册失败，请稍后重试" delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [weakself.alertView show];
-            
-    }];
+//    TBUser *user = [TBStoreDataUtil restoreUser];
+//    
+//    __weak typeof(self) weakself = self;
+//    
+//    //注册url
+//    NSString *urlStr = [NSString stringWithFormat:@"%@uploadIdCard",API_PRE_URL];
+//    NSDictionary *dict =@{@"userId":user.userId,@"realName":self.trueNameTF.text,@"idCardNo":self.idCardVerficationTF.text,@"idCardImgBase64":[TBImageUtil image2Base64Str:self.idCardImgView.image]};
+//    
+//    // 写请求对象
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//    // 接收的输入类型
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    //post请求
+//    [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+//    
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//    
+//        NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
+//        if (responseDict && [responseCode isEqualToString:@"200"]) {
+//    
+//            NSDictionary *dataDict = responseDict[@"data"];
+//    
+//            TBIDCardVerficationViewController *tbIDCardVerficationVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_iDCardVerficationVC"];
+//            [weakself.navigationController pushViewController:tbIDCardVerficationVC animated:YES];
+//        }else {
+//            weakself.alertView = [[UIAlertView alloc]initWithTitle:@"注册失败" message:responseDict[@"message"] delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [weakself.alertView show];
+//    
+//            [weakself.navigationController popViewControllerAnimated:YES];
+//        }
+//    
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            NSLog(@"%@",error);
+//            weakself.alertView = [[UIAlertView alloc]initWithTitle:@"注册失败" message:@"注册失败，请稍后重试" delegate:weakself cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//            [weakself.alertView show];
+//            
+//    }];
     
     TBDriverLicenseViewController *tbDriverLicenseVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_driverLicenseVC"];
     [self.navigationController pushViewController:tbDriverLicenseVC animated:YES];

@@ -428,6 +428,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="chooseLabel" destination="pA2-fC-2hU" id="I72-zX-02V"/>
                         <outlet property="generateIdentityCodeBtn" destination="TeQ-Ew-Dev" id="OT5-md-Tgy"/>
                         <outlet property="identityCodeTF" destination="Lox-gb-j5Y" id="RGx-bn-fey"/>
                         <outlet property="inviteCodeTF" destination="Q6v-D0-0RW" id="ZcQ-mj-JyQ"/>
@@ -512,6 +513,8 @@
                     </view>
                     <connections>
                         <outlet property="idCardImgView" destination="c2K-jN-flS" id="gTk-DW-FWF"/>
+                        <outlet property="idCardLabel" destination="CBP-Y7-CXE" id="XjG-Z8-fnr"/>
+                        <outlet property="idCardTipLabel" destination="GGr-Sj-nhi" id="dA4-XC-50q"/>
                         <outlet property="idCardVerficationTF" destination="yz9-Ew-ghg" id="yYM-TQ-swW"/>
                         <outlet property="nextStepBtn" destination="qGK-7G-umM" id="sPa-4Y-x2x"/>
                         <outlet property="trueNameTF" destination="tSJ-Aa-OhZ" id="dtQ-jO-446"/>
@@ -584,8 +587,11 @@
                     </view>
                     <connections>
                         <outlet property="archivesNumTF" destination="afh-Nw-dcO" id="y5P-b4-A1h"/>
+                        <outlet property="driverLicenseLabel" destination="n3w-Dh-wv2" id="2Sv-nM-Xod"/>
                         <outlet property="driverLicenseNumTF" destination="VVv-hf-VIb" id="llz-Vr-qHl"/>
                         <outlet property="nextStepBtn" destination="6Nt-f9-JBG" id="NDZ-Xq-ZeX"/>
+                        <outlet property="registerDLTipLabel" destination="o4h-QT-fAL" id="cZK-Y9-Zpf"/>
+                        <outlet property="registerImgView" destination="3Ny-oj-XZj" id="ZED-Ga-SAI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGd-Y8-axU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,28 +617,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_0123.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="78s-Fv-kPC">
-                                <rect key="frame" x="16" y="123" width="52" height="43"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f53-xe-08a">
+                                <rect key="frame" x="0.0" y="122" width="320" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付宝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlV-Kd-Yra">
-                                <rect key="frame" x="92" y="134" width="65" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG1-xG-keB">
-                                <rect key="frame" x="228" y="125" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="选择"/>
-                                <connections>
-                                    <action selector="alipayBtnOnclick:" destination="kWP-EG-TQL" eventType="touchUpInside" id="xDi-Cw-45e"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_0123.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="78s-Fv-kPC">
+                                        <rect key="frame" x="18" y="16" width="52" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="支付宝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlV-Kd-Yra">
+                                        <rect key="frame" x="94" y="27" width="65" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG1-xG-keB">
+                                        <rect key="frame" x="249" y="19" width="46" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="选择"/>
+                                        <connections>
+                                            <action selector="alipayBtnOnclick:" destination="kWP-EG-TQL" eventType="touchUpInside" id="xDi-Cw-45e"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDI-GH-P9j">
-                                <rect key="frame" x="78" y="231" width="175" height="30"/>
+                                <rect key="frame" x="78" y="226" width="175" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -648,6 +661,9 @@
                     </view>
                     <connections>
                         <outlet property="alipayBtn" destination="VG1-xG-keB" id="DYe-Ox-7lF"/>
+                        <outlet property="alipayImgView" destination="78s-Fv-kPC" id="rHd-es-6Kb"/>
+                        <outlet property="alipayLabel" destination="DlV-Kd-Yra" id="Je7-AX-YZv"/>
+                        <outlet property="alipayView" destination="f53-xe-08a" id="obA-EU-hTM"/>
                         <outlet property="moneyNumTF" destination="2Ee-6e-X2s" id="3wG-hu-QlV"/>
                         <outlet property="rechargeBtn" destination="bDI-GH-P9j" id="2r6-Xa-RAv"/>
                     </connections>

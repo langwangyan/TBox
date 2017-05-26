@@ -9,6 +9,8 @@
 #import "TBLoginIndexViewController.h"
 #import "TBRegisterViewController.h"
 
+#define MARGIN 20.f
+
 @interface TBLoginIndexViewController ()
 
 @property(nonatomic,strong) TBRegisterStatusView *registerView;
@@ -55,11 +57,17 @@
 //初始化view
 -(void)initView {
     self.registerView = [[TBRegisterStatusView alloc]initWithStatus:0];
-    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 60)];
     
     [self.view addSubview:self.registerView];
     
+    [self.phoneNumTF setFrame:CGRectMake(MARGIN, self.registerView.frame.origin.y+self.registerView.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 30)];
+    [self.identityCodeTF setFrame:CGRectMake(MARGIN, self.phoneNumTF.frame.origin.y+self.phoneNumTF.frame.size.height+5, SCREEN_WIDTH-MARGIN*3-100, 30)];
+    [self.generateIdentifyCodeBtn setFrame:CGRectMake(MARGIN+self.identityCodeTF.frame.size.width+self.identityCodeTF.frame.origin.x, self.phoneNumTF.frame.origin.y+self.phoneNumTF.frame.size.height+5, 100, 30)];
     
+    [self.loginBtn setFrame:CGRectMake(MARGIN*2, self.generateIdentifyCodeBtn.frame.size.height+self.generateIdentifyCodeBtn.frame.origin.y+5, 100, 30)];
+    [self.registerBtn setFrame:CGRectMake(SCREEN_WIDTH-MARGIN*2-100, self.loginBtn.frame.origin.y, 100, 30)];
+
 }
 
 //返回

@@ -9,11 +9,16 @@
 #import "TBDriverLicenseViewController.h"
 #import "TBRechargeViewController.h"
 
+#define MARGIN 20.f
+
 @interface TBDriverLicenseViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *driverLicenseNumTF;
 
 @property (weak, nonatomic) IBOutlet UITextField *archivesNumTF;
+@property (weak, nonatomic) IBOutlet UILabel *driverLicenseLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *registerImgView;
+@property (weak, nonatomic) IBOutlet UIButton *registerDLTipLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
 
 @property(nonatomic,strong) TBRegisterStatusView *registerView;
@@ -32,9 +37,18 @@
 //初始化view
 -(void)initView {
     self.registerView = [[TBRegisterStatusView alloc]initWithStatus:3];
-    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 120)];
+    [self.registerView setFrame:CGRectMake(0, 44+20, SCREEN_WIDTH, 60)];
     
     [self.view addSubview:self.registerView];
+    
+    [self.driverLicenseNumTF setFrame:CGRectMake(MARGIN, self.registerView.frame.origin.y+self.registerView.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 30)];
+    [self.archivesNumTF setFrame:CGRectMake(MARGIN, self.driverLicenseNumTF.frame.origin.y+self.driverLicenseNumTF.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 30)];
+    [self.driverLicenseLabel setFrame:CGRectMake((SCREEN_WIDTH-100)/2, self.archivesNumTF.frame.origin.y+self.archivesNumTF.frame.size.height+5, 100, 30)];
+    [self.registerImgView setFrame:CGRectMake(MARGIN, self.driverLicenseLabel.frame.origin.y+self.driverLicenseLabel.frame.size.height+5, SCREEN_WIDTH-MARGIN*2, 150)];
+    
+    [self.registerDLTipLabel setFrame:CGRectMake((SCREEN_WIDTH-250)/2, self.registerImgView.frame.origin.y+self.registerImgView.frame.size.height+10, 250, 30)];
+    
+    [self.nextStepBtn setFrame:CGRectMake((SCREEN_WIDTH-100)/2, self.registerDLTipLabel.frame.size.height+self.registerDLTipLabel.frame.origin.y+5, 100, 40)];
 }
 
 - (IBAction)nextStepBtnOnclick:(id)sender {

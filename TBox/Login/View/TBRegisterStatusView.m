@@ -7,13 +7,13 @@
 //
 
 #import "TBRegisterStatusView.h"
-#define BUTTON_Font [UIFont systemFontOfSize:13]
+#define BUTTON_Font [UIFont systemFontOfSize:11]
 #define TOP_MARGIN 10.f
-#define BUTTON_WIDTH 70.f
-#define BUTTON_HEIGHT 60.f
-#define ARROW_WIDTH 30.f
+#define BUTTON_WIDTH 60.f
+#define BUTTON_HEIGHT 35.f
+#define ARROW_WIDTH 25.f
 #define ARROW_HEIGHT 10.f
-#define PADDING 15.f
+#define PADDING 10.f
 
 #define LEFT_MARGIN (SCREEN_WIDTH-5*BUTTON_WIDTH-4*(ARROW_WIDTH-2*PADDING))/2
 
