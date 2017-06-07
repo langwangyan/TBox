@@ -37,6 +37,9 @@
 #import <AlipaySDK/AlipaySDK.h>
 //========支付宝相关end=============
 
+
+#import "TBLoginIndexViewController.h"
+
 //========view start=============
 #import "TBRegisterStatusView.h"
 //========view end=============

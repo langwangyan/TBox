@@ -23,6 +23,8 @@
 
 @property(nonatomic,strong) NSDictionary *meanuDict;
 
+@property(nonatomic,strong) TBUser *user;
+
 @end
 
 @implementation TBLeftViewController
@@ -110,29 +112,122 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if ([self.menuArray[indexPath.row] isEqualToString:@"我的行程"]) {
-        
-    }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的钱包"]) {
-        TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
-        
-        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
-            [self.delegate pushVC:wallentVC];
+        if ([self validateIsLogin]) {
+            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:wallentVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
         }
-    }else if ([self.menuArray[indexPath.row] isEqualToString:@"分享有礼"]) {
-        TBShareViewController *shareVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_shareVC"];
+
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的钱包"]) {
         
-        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
-            [self.delegate pushVC:shareVC];
+        if ([self validateIsLogin]) {
+            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:wallentVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
+        }
+        
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"分享有礼"]) {
+        
+        if ([self validateIsLogin]) {
+            TBShareViewController *shareVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_shareVC"];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:shareVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
         }
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"用户指南"]) {
-        
-    }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的消息"]) {
-        
-    }else if ([self.menuArray[indexPath.row] isEqualToString:@"救援中心"]) {
-        
-    }else if ([self.menuArray[indexPath.row] isEqualToString:@"设置"]) {
-        
-    }
+        if ([self validateIsLogin]) {
+            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:wallentVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
+        }
 
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的消息"]) {
+        if ([self validateIsLogin]) {
+            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:wallentVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
+        }
+
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"救援中心"]) {
+        if ([self validateIsLogin]) {
+            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:wallentVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
+        }
+
+    }else if ([self.menuArray[indexPath.row] isEqualToString:@"设置"]) {
+        if ([self validateIsLogin]) {
+            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:wallentVC];
+            }
+        }else {
+            //说明未登录
+            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+                [self.delegate pushVC:tbLoginIndexVC];
+            }
+        }
+    }
+    
 }
+
+//校验是否登录
+-(Boolean) validateIsLogin {
+    self.user = [TBStoreDataUtil restoreUser];
+    if(!self.user || !self.user.userId || !self.user.mobile) {
+        return NO;
+    }
+    return YES;
+}
+
 
 @end

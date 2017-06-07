@@ -31,6 +31,7 @@
     
     [self initData];
     [self initTableView];
+    
 }
 
 //初始化data
@@ -38,7 +39,7 @@
     _menuArray = [NSArray arrayWithObjects:@"保证金",@"账户余额",@"优惠卡券",@"支付密码", nil];
     //获取短信验证码
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,WALLENT_API];
-    TBUser *user = [TBStoreDataUtil restoreUser];
+    TBUser *user = [TBStoreDataUtil restoreUser];;
     NSDictionary *dict =@{@"userId":user.userId};
     __weak typeof(self) weakself = self;
     
@@ -55,7 +56,7 @@
         NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
         if (responseDict && [responseCode isEqualToString:@"200"]) {
-        
+            
             NSDictionary *dataDict = responseDict[@"data"];
             _rightStrArray = [NSArray arrayWithObjects:[NSString stringWithFormat:@"￥%@",dataDict[@"deposit"]],[NSString stringWithFormat:@"￥%@",dataDict[@"balance"]],[NSString stringWithFormat:@"%@张",dataDict[@"couponNum"]], nil];
         }else {
@@ -68,8 +69,9 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [TBProgressUtil showToast2View:weakself.view WithMsg:error.description];
     }];
-
+    
 }
+
 //初始化tableView
 -(void)initTableView{
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
@@ -142,7 +144,7 @@
         TBBondViewController *bondVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_bondVC"];
         
         [self.navigationController pushViewController:bondVC animated:YES];
-
+        
     }else if ([_menuArray[indexPath.row] isEqualToString:@"账户余额"]) {
         
         TBBalanceViewController *balanceVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_balanceVC"];

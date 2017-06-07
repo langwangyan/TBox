@@ -7,7 +7,6 @@
 //
 
 #import "TBHomeViewController.h"
-#import "TBLoginIndexViewController.h"
 
 @interface TBHomeViewController ()<TBLeftViewControllerDelegate>
 
