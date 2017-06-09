@@ -11,6 +11,12 @@
 
 @interface TBProgressUtil : NSObject
 
+@property(nonatomic,weak) MBProgressHUD *hud;
+
 +(void)showToast2View:(UIView *)view WithMsg:(NSString *)msg;
+
+-(void)showLoading2View:(UIView *) view;
+
+-(void) hideLoadingView;
 
 @end

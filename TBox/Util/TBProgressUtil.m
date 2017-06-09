@@ -29,4 +29,21 @@
     [hud hideAnimated:YES afterDelay:2];
 }
 
+-(void) showLoading2View:(UIView *)view {
+    self.hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+    [view addSubview:self.hud];
+    
+    self.hud.mode = MBProgressHUDModeAnnularDeterminate;
+    
+    self.hud.label.text = @"加载中...";
+    
+//    [hud showWhileExecuting:@selector(myProgressTask) onTarget:self withObject:nil animated:YES];
+}
+
+-(void) hideLoadingView {
+    [self.hud showAnimated:YES];
+    [self.hud setHidden:YES];
+}
+
 @end
