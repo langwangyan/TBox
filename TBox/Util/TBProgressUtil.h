@@ -19,4 +19,6 @@
 
 -(void) hideLoadingView;
 
+-(void) showLoading2View:(UIView *)view msg:(NSString *)msg;
+
 @end

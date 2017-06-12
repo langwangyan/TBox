@@ -9,6 +9,8 @@
 #import "TBLeftViewController.h"
 #import "TBShareViewController.h"
 #import "TBWallentViewController.h"
+#import "TBSettingViewController.h"
+#import "TBStoreDataUtil.h"
 
 @interface TBLeftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -83,6 +85,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    TBUser *user = [TBStoreDataUtil restoreUser];
+    
     _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LEFTVIEW_WIDTH, 120)];
     [_headView setBackgroundColor:[UIColor whiteColor]];
     
@@ -92,8 +96,8 @@
     
     [self.headView addSubview:_headerImgView];
     
-    _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 60, 120, 50)];
-    _nameLabel.text=@"name";
+    _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 60, tableView.frame.size.width-100, 50)];
+    _nameLabel.text=user.userId ;
     [_nameLabel setTextColor:[UIColor blackColor]];
     [_nameLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
     
@@ -125,7 +129,7 @@
                 [self.delegate pushVC:tbLoginIndexVC];
             }
         }
-
+        
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的钱包"]) {
         
         if ([self validateIsLogin]) {
@@ -171,7 +175,7 @@
                 [self.delegate pushVC:tbLoginIndexVC];
             }
         }
-
+        
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"我的消息"]) {
         if ([self validateIsLogin]) {
             TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
@@ -186,7 +190,7 @@
                 [self.delegate pushVC:tbLoginIndexVC];
             }
         }
-
+        
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"救援中心"]) {
         if ([self validateIsLogin]) {
             TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
@@ -201,23 +205,16 @@
                 [self.delegate pushVC:tbLoginIndexVC];
             }
         }
-
+        
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"设置"]) {
-        if ([self validateIsLogin]) {
-            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
-            
-            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
-                [self.delegate pushVC:wallentVC];
-            }
-        }else {
-            //说明未登录
-            TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
-            if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
-                [self.delegate pushVC:tbLoginIndexVC];
-            }
+        
+        TBSettingViewController *settingVC = [[TBSettingViewController alloc]init];
+        
+        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+            [self.delegate pushVC:settingVC];
         }
+        
     }
-    
 }
 
 //校验是否登录

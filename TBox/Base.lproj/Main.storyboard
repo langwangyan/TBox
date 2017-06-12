@@ -25,6 +25,52 @@
             </objects>
             <point key="canvasLocation" x="840" y="95"/>
         </scene>
+        <!--Feed Back View Controller-->
+        <scene sceneID="SC0-fM-P8Y">
+            <objects>
+                <viewController storyboardIdentifier="tb_feedbackVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SN4-Lq-HJE" customClass="TBFeedBackViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gv0-CL-ovt"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Wj-yj-Na3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P5D-Rz-Mv9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入您的手机/qq号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIE-Zu-i5R">
+                                <rect key="frame" x="37" y="102" width="246" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-C0-3JU">
+                                <rect key="frame" x="123" y="381" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="提交">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBl-5r-eY2">
+                                <rect key="frame" x="37" y="161" width="246" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentTV" destination="mBl-5r-eY2" id="dbQ-dB-Ppv"/>
+                        <outlet property="submitBtn" destination="qeI-C0-3JU" id="Vwc-yO-KLC"/>
+                        <outlet property="userInfoTF" destination="kIE-Zu-i5R" id="oxA-7H-CB8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdg-uG-eEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606.875" y="-1283.4507042253522"/>
+        </scene>
         <!--Share View Controller-->
         <scene sceneID="g0d-gg-JwK">
             <objects>

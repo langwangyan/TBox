@@ -31,13 +31,17 @@
     
     [self initData];
     [self initTableView];
+    [self reloadData];
     
 }
 
 //初始化data
 -(void)initData{
     _menuArray = [NSArray arrayWithObjects:@"保证金",@"账户余额",@"优惠卡券",@"支付密码", nil];
-    //获取短信验证码
+}
+
+//重新加载数据
+-(void)reloadData {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,WALLENT_API];
     TBUser *user = [TBStoreDataUtil restoreUser];;
     NSDictionary *dict =@{@"userId":user.userId};
@@ -48,6 +52,9 @@
     
     // 接收的输入类型
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    TBProgressUtil *tb_progress = [[TBProgressUtil alloc]init];
+    [tb_progress showLoading2View:self.view];
     
     //post请求
     [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -63,13 +70,16 @@
             [TBProgressUtil showToast2View:weakself.view WithMsg:responseDict[@"message"]];
             _rightStrArray = [NSArray arrayWithObjects:@"￥0",@"￥0",@"0张", nil];
         }
+        [tb_progress hideLoadingView];
         
         [weakself.tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [tb_progress hideLoadingView];
+        
         [TBProgressUtil showToast2View:weakself.view WithMsg:error.description];
     }];
-    
 }
 
 //初始化tableView
@@ -100,7 +110,7 @@
 }
 #pragma UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.menuArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

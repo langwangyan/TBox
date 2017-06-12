@@ -32,7 +32,6 @@
     [ShareSDK registerApp:@"1e92790e36fe8"
           activePlatforms:@[
                             @(SSDKPlatformTypeSinaWeibo),
-                            @(SSDKPlatformTypeSMS),
                             @(SSDKPlatformTypeCopy),
                             @(SSDKPlatformTypeWechat),
                             @(SSDKPlatformTypeQQ)]

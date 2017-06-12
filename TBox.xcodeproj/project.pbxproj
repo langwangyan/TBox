@@ -32,10 +32,12 @@
 		E37582511EAE59FF006B9A53 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E37582501EAE59FF006B9A53 /* AppDelegate.m */; };
 		E37582571EAE59FF006B9A53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E37582551EAE59FF006B9A53 /* Main.storyboard */; };
 		E375827B1EAE5DE9006B9A53 /* TBSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = E375827A1EAE5DE9006B9A53 /* TBSecondView.m */; };
-		E37FE8D71ECA02E5002E6D46 /* TBBondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8D61ECA02E5002E6D46 /* TBBondViewController.m */; };
-		E37FE8DA1ECA04F2002E6D46 /* TBBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8D91ECA04F2002E6D46 /* TBBalanceViewController.m */; };
-		E37FE8DD1ECA05A9002E6D46 /* TBCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8DC1ECA05A9002E6D46 /* TBCouponViewController.m */; };
-		E37FE8E01ECA0676002E6D46 /* TBPayPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37FE8DF1ECA0676002E6D46 /* TBPayPassWordViewController.m */; };
+		E39F48E01EEEE2130046FC0C /* TBSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F48DF1EEEE2130046FC0C /* TBSettingViewController.m */; };
+		E39F48EB1EEEE7030046FC0C /* TBBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F48E41EEEE7030046FC0C /* TBBalanceViewController.m */; };
+		E39F48EC1EEEE7030046FC0C /* TBBondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F48E61EEEE7030046FC0C /* TBBondViewController.m */; };
+		E39F48ED1EEEE7030046FC0C /* TBCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F48E81EEEE7030046FC0C /* TBCouponViewController.m */; };
+		E39F48EE1EEEE7030046FC0C /* TBPayPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F48EA1EEEE7030046FC0C /* TBPayPassWordViewController.m */; };
+		E39F48F11EEEF0D60046FC0C /* TBFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E39F48F01EEEF0D60046FC0C /* TBFeedBackViewController.m */; };
 		E3AA22461EB0E694006C656D /* TBLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22421EB0E694006C656D /* TBLeftViewController.m */; };
 		E3AA22471EB0E694006C656D /* TBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA22441EB0E694006C656D /* TBNavigationController.m */; };
 		E3AA224F1EB0ECCC006C656D /* TBFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AA224E1EB0ECCC006C656D /* TBFirstView.m */; };
@@ -243,14 +245,18 @@
 		E37582791EAE5DE9006B9A53 /* TBSecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSecondView.h; sourceTree = "<group>"; };
 		E375827A1EAE5DE9006B9A53 /* TBSecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSecondView.m; sourceTree = "<group>"; };
 		E375827C1EAE5FAE006B9A53 /* TBoxHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoxHeader.pch; sourceTree = "<group>"; };
-		E37FE8D51ECA02E5002E6D46 /* TBBondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBondViewController.h; sourceTree = "<group>"; };
-		E37FE8D61ECA02E5002E6D46 /* TBBondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBondViewController.m; sourceTree = "<group>"; };
-		E37FE8D81ECA04F2002E6D46 /* TBBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBalanceViewController.h; sourceTree = "<group>"; };
-		E37FE8D91ECA04F2002E6D46 /* TBBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBalanceViewController.m; sourceTree = "<group>"; };
-		E37FE8DB1ECA05A9002E6D46 /* TBCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCouponViewController.h; sourceTree = "<group>"; };
-		E37FE8DC1ECA05A9002E6D46 /* TBCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCouponViewController.m; sourceTree = "<group>"; };
-		E37FE8DE1ECA0676002E6D46 /* TBPayPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPayPassWordViewController.h; sourceTree = "<group>"; };
-		E37FE8DF1ECA0676002E6D46 /* TBPayPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBPayPassWordViewController.m; sourceTree = "<group>"; };
+		E39F48DE1EEEE2130046FC0C /* TBSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBSettingViewController.h; sourceTree = "<group>"; };
+		E39F48DF1EEEE2130046FC0C /* TBSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBSettingViewController.m; sourceTree = "<group>"; };
+		E39F48E31EEEE7030046FC0C /* TBBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBalanceViewController.h; sourceTree = "<group>"; };
+		E39F48E41EEEE7030046FC0C /* TBBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBalanceViewController.m; sourceTree = "<group>"; };
+		E39F48E51EEEE7030046FC0C /* TBBondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBondViewController.h; sourceTree = "<group>"; };
+		E39F48E61EEEE7030046FC0C /* TBBondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBondViewController.m; sourceTree = "<group>"; };
+		E39F48E71EEEE7030046FC0C /* TBCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCouponViewController.h; sourceTree = "<group>"; };
+		E39F48E81EEEE7030046FC0C /* TBCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCouponViewController.m; sourceTree = "<group>"; };
+		E39F48E91EEEE7030046FC0C /* TBPayPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBPayPassWordViewController.h; sourceTree = "<group>"; };
+		E39F48EA1EEEE7030046FC0C /* TBPayPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBPayPassWordViewController.m; sourceTree = "<group>"; };
+		E39F48EF1EEEF0D60046FC0C /* TBFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFeedBackViewController.h; sourceTree = "<group>"; };
+		E39F48F01EEEF0D60046FC0C /* TBFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFeedBackViewController.m; sourceTree = "<group>"; };
 		E3AA22411EB0E694006C656D /* TBLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLeftViewController.h; sourceTree = "<group>"; };
 		E3AA22421EB0E694006C656D /* TBLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLeftViewController.m; sourceTree = "<group>"; };
 		E3AA22431EB0E694006C656D /* TBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNavigationController.h; sourceTree = "<group>"; };
@@ -751,6 +757,30 @@
 				E375827A1EAE5DE9006B9A53 /* TBSecondView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E39F48E11EEEE5900046FC0C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E39F48EF1EEEF0D60046FC0C /* TBFeedBackViewController.h */,
+				E39F48F01EEEF0D60046FC0C /* TBFeedBackViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		E39F48E21EEEE6C70046FC0C /* Wallent */ = {
+			isa = PBXGroup;
+			children = (
+				E39F48E31EEEE7030046FC0C /* TBBalanceViewController.h */,
+				E39F48E41EEEE7030046FC0C /* TBBalanceViewController.m */,
+				E39F48E51EEEE7030046FC0C /* TBBondViewController.h */,
+				E39F48E61EEEE7030046FC0C /* TBBondViewController.m */,
+				E39F48E71EEEE7030046FC0C /* TBCouponViewController.h */,
+				E39F48E81EEEE7030046FC0C /* TBCouponViewController.m */,
+				E39F48E91EEEE7030046FC0C /* TBPayPassWordViewController.h */,
+				E39F48EA1EEEE7030046FC0C /* TBPayPassWordViewController.m */,
+			);
+			path = Wallent;
 			sourceTree = "<group>";
 		};
 		E3AA22321EB0DF1B006C656D /* Home */ = {
@@ -1297,18 +1327,14 @@
 		E3DF766A1EC6DFEE00D07149 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E39F48E21EEEE6C70046FC0C /* Wallent */,
+				E39F48E11EEEE5900046FC0C /* Setting */,
 				E3DF766B1EC6E00100D07149 /* TBShareViewController.h */,
 				E3DF766C1EC6E00100D07149 /* TBShareViewController.m */,
 				E3DF766E1EC6EE9E00D07149 /* TBWallentViewController.h */,
 				E3DF766F1EC6EE9E00D07149 /* TBWallentViewController.m */,
-				E37FE8D51ECA02E5002E6D46 /* TBBondViewController.h */,
-				E37FE8D61ECA02E5002E6D46 /* TBBondViewController.m */,
-				E37FE8D81ECA04F2002E6D46 /* TBBalanceViewController.h */,
-				E37FE8D91ECA04F2002E6D46 /* TBBalanceViewController.m */,
-				E37FE8DB1ECA05A9002E6D46 /* TBCouponViewController.h */,
-				E37FE8DC1ECA05A9002E6D46 /* TBCouponViewController.m */,
-				E37FE8DE1ECA0676002E6D46 /* TBPayPassWordViewController.h */,
-				E37FE8DF1ECA0676002E6D46 /* TBPayPassWordViewController.m */,
+				E39F48DE1EEEE2130046FC0C /* TBSettingViewController.h */,
+				E39F48DF1EEEE2130046FC0C /* TBSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1425,11 +1451,9 @@
 				E3C1AB771EAF9A5C00F1CF16 /* MKAnnotationView+WebCache.m in Sources */,
 				E3AA22C31EB0EFC1006C656D /* NSString+BFKit.m in Sources */,
 				E3C1AB1A1EAF97C300F1CF16 /* MJRefreshBackNormalFooter.m in Sources */,
-				E37FE8D71ECA02E5002E6D46 /* TBBondViewController.m in Sources */,
 				E3AA22C81EB0EFC1006C656D /* UIDevice+BFKit.m in Sources */,
 				E3AA22D01EB0EFC1006C656D /* UITableView+BFKit.m in Sources */,
 				E3AA22CA1EB0EFC1006C656D /* UIImage+BFKit.m in Sources */,
-				E37FE8DA1ECA04F2002E6D46 /* TBBalanceViewController.m in Sources */,
 				E3AA22CF1EB0EFC1006C656D /* UIScrollView+BFKit.m in Sources */,
 				E3C1AB201EAF97C300F1CF16 /* MJRefreshConst.m in Sources */,
 				E3C1ABC61EAF9E2300F1CF16 /* UIProgressView+AFNetworking.m in Sources */,
@@ -1447,15 +1471,19 @@
 				E3AA22CC1EB0EFC1006C656D /* UILabel+BFKit.m in Sources */,
 				E3AA22DE1EB0EFC1006C656D /* BFTextField.m in Sources */,
 				E3DF76701EC6EE9E00D07149 /* TBWallentViewController.m in Sources */,
+				E39F48E01EEEE2130046FC0C /* TBSettingViewController.m in Sources */,
 				E3AA22CE1EB0EFC1006C656D /* UIScreen+BFKit.m in Sources */,
+				E39F48EE1EEEE7030046FC0C /* TBPayPassWordViewController.m in Sources */,
 				E3C1AB241EAF97C300F1CF16 /* UIView+MJExtension.m in Sources */,
 				E3DF766D1EC6E00100D07149 /* TBShareViewController.m in Sources */,
 				E3C1AB161EAF97C300F1CF16 /* MJRefreshAutoGifFooter.m in Sources */,
 				E3C1AB221EAF97C300F1CF16 /* UIScrollView+MJExtension.m in Sources */,
+				E39F48EB1EEEE7030046FC0C /* TBBalanceViewController.m in Sources */,
 				E3C1AB121EAF97C300F1CF16 /* MJRefreshBackFooter.m in Sources */,
 				E3AA22C21EB0EFC1006C656D /* NSProcessInfo+BFKit.m in Sources */,
 				E3C1AB451EAF982400F1CF16 /* NSObject+MJProperty.m in Sources */,
 				E3C1ABC71EAF9E2300F1CF16 /* UIRefreshControl+AFNetworking.m in Sources */,
+				E39F48ED1EEEE7030046FC0C /* TBCouponViewController.m in Sources */,
 				E3AA22DD1EB0EFC1006C656D /* BFSystemSound.m in Sources */,
 				E3C1AB461EAF982400F1CF16 /* NSString+MJExtension.m in Sources */,
 				E3C1AB7C1EAF9A5C00F1CF16 /* SDWebImageCompat.m in Sources */,
@@ -1470,9 +1498,10 @@
 				E3AA22BF1EB0EFC0006C656D /* NSMutableDictionary+BFKit.m in Sources */,
 				E3C1AB171EAF97C300F1CF16 /* MJRefreshAutoNormalFooter.m in Sources */,
 				E3AA22BC1EB0EFC0006C656D /* NSDictionary+BFKit.m in Sources */,
-				E37FE8E01ECA0676002E6D46 /* TBPayPassWordViewController.m in Sources */,
+				E39F48EC1EEEE7030046FC0C /* TBBondViewController.m in Sources */,
 				E3C1AB441EAF982400F1CF16 /* NSObject+MJKeyValue.m in Sources */,
 				E3C1ABC41EAF9E2300F1CF16 /* UIButton+AFNetworking.m in Sources */,
+				E39F48F11EEEF0D60046FC0C /* TBFeedBackViewController.m in Sources */,
 				E3C1AB811EAF9A5C00F1CF16 /* SDWebImagePrefetcher.m in Sources */,
 				E3C1ABBD1EAF9E2300F1CF16 /* AFURLRequestSerialization.m in Sources */,
 				E3AA22D41EB0EFC1006C656D /* UIView+BFKit.m in Sources */,
@@ -1530,7 +1559,6 @@
 				E375824E1EAE59FF006B9A53 /* main.m in Sources */,
 				E3C1AB111EAF97C300F1CF16 /* MJRefreshAutoFooter.m in Sources */,
 				E3AA22BA1EB0EFC0006C656D /* NSData+BFKit.m in Sources */,
-				E37FE8DD1ECA05A9002E6D46 /* TBCouponViewController.m in Sources */,
 				E305F91D1EBCDDA7008E17F6 /* TBLoginIndexViewController.m in Sources */,
 				E305F9111EBCD740008E17F6 /* TBUser.m in Sources */,
 				E3C1AB7A1EAF9A5C00F1CF16 /* SDImageCache.m in Sources */,

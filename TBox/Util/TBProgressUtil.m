@@ -12,6 +12,7 @@
 
 +(void)showToast2View:(UIView *)view WithMsg:(NSString *)msg {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    [view bringSubviewToFront:hud];
     
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.color = [UIColor colorWithRed:0 green:0 blue:0 alpha:.6];
@@ -33,12 +34,24 @@
     self.hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     [view addSubview:self.hud];
+    [view bringSubviewToFront:self.hud];
     
     self.hud.mode = MBProgressHUDModeAnnularDeterminate;
     
     self.hud.label.text = @"加载中...";
     
-//    [hud showWhileExecuting:@selector(myProgressTask) onTarget:self withObject:nil animated:YES];
+}
+
+-(void) showLoading2View:(UIView *)view msg:(NSString *)msg{
+    self.hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+    [view addSubview:self.hud];
+    [view bringSubviewToFront:self.hud];
+    
+    self.hud.mode = MBProgressHUDModeAnnularDeterminate;
+    
+    self.hud.label.text = msg;
+    
 }
 
 -(void) hideLoadingView {
