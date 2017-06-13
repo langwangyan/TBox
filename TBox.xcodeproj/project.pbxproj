@@ -11,6 +11,7 @@
 		E305F9111EBCD740008E17F6 /* TBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9101EBCD740008E17F6 /* TBUser.m */; };
 		E305F9171EBCDCB7008E17F6 /* TBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */; };
 		E305F91D1EBCDDA7008E17F6 /* TBLoginIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */; };
+		E3071CAE1EF0495900E34545 /* TBGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3071CAD1EF0495900E34545 /* TBGuideViewController.m */; };
 		E30B4A311EC4B57D001C3FAD /* TBImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */; };
 		E30B4A331EC4BA02001C3FAD /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A321EC4BA02001C3FAD /* AlipaySDK.framework */; };
 		E30B4A351EC4BA44001C3FAD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B4A341EC4BA44001C3FAD /* libc++.tbd */; };
@@ -213,6 +214,8 @@
 		E305F9161EBCDCB7008E17F6 /* TBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBRegisterViewController.m; sourceTree = "<group>"; };
 		E305F91B1EBCDDA7008E17F6 /* TBLoginIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBLoginIndexViewController.h; sourceTree = "<group>"; };
 		E305F91C1EBCDDA7008E17F6 /* TBLoginIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBLoginIndexViewController.m; sourceTree = "<group>"; };
+		E3071CAC1EF0495900E34545 /* TBGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBGuideViewController.h; sourceTree = "<group>"; };
+		E3071CAD1EF0495900E34545 /* TBGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBGuideViewController.m; sourceTree = "<group>"; };
 		E30B4A2F1EC4B57D001C3FAD /* TBImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBImageUtil.h; sourceTree = "<group>"; };
 		E30B4A301EC4B57D001C3FAD /* TBImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBImageUtil.m; sourceTree = "<group>"; };
 		E30B4A321EC4BA02001C3FAD /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = TBox/ThirdFramework/AlipaySDK.framework; sourceTree = "<group>"; };
@@ -683,6 +686,13 @@
 				E31E50A61ECF3A9B00D8B0C3 /* TBRegisterStatusView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E3071CAB1EF0494400E34545 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Guide;
 			sourceTree = "<group>";
 		};
 		E372D61F1EBF017C00C47D79 /* NotificationCenter */ = {
@@ -1327,6 +1337,7 @@
 		E3DF766A1EC6DFEE00D07149 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E3071CAB1EF0494400E34545 /* Guide */,
 				E39F48E21EEEE6C70046FC0C /* Wallent */,
 				E39F48E11EEEE5900046FC0C /* Setting */,
 				E3DF766B1EC6E00100D07149 /* TBShareViewController.h */,
@@ -1335,6 +1346,8 @@
 				E3DF766F1EC6EE9E00D07149 /* TBWallentViewController.m */,
 				E39F48DE1EEEE2130046FC0C /* TBSettingViewController.h */,
 				E39F48DF1EEEE2130046FC0C /* TBSettingViewController.m */,
+				E3071CAC1EF0495900E34545 /* TBGuideViewController.h */,
+				E3071CAD1EF0495900E34545 /* TBGuideViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1450,6 +1463,7 @@
 				E3C1AB761EAF9A5C00F1CF16 /* FLAnimatedImageView+WebCache.m in Sources */,
 				E3C1AB771EAF9A5C00F1CF16 /* MKAnnotationView+WebCache.m in Sources */,
 				E3AA22C31EB0EFC1006C656D /* NSString+BFKit.m in Sources */,
+				E3071CAE1EF0495900E34545 /* TBGuideViewController.m in Sources */,
 				E3C1AB1A1EAF97C300F1CF16 /* MJRefreshBackNormalFooter.m in Sources */,
 				E3AA22C81EB0EFC1006C656D /* UIDevice+BFKit.m in Sources */,
 				E3AA22D01EB0EFC1006C656D /* UITableView+BFKit.m in Sources */,

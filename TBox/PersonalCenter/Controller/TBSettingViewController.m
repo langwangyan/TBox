@@ -16,6 +16,8 @@
 @property(nonatomic,strong) NSArray *rightStrArray;
 @property (nonatomic, strong) UITableView *tableView;
 
+@property(nonatomic,strong) UIButton *exitBtn;
+
 @end
 
 @implementation TBSettingViewController
@@ -27,7 +29,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self initData];
-    [self initTableView];
+    [self initView];
     
 }
 
@@ -51,11 +53,29 @@
 }
 
 //初始化tableView
--(void)initTableView{
+-(void)initView{
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    [_tableView setScrollEnabled:NO];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
+    
+    _exitBtn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, self.menuArray.count*55+20, 200, 40)];
+    [_exitBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [_exitBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _exitBtn.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
+    [_exitBtn setBackgroundColor:[UIColor colorWithRed:137/255.0 green:194/255.0 blue:193/255.0 alpha:.8]];
+    
+    _exitBtn.clipsToBounds = YES;
+    _exitBtn.layer.cornerRadius=8;
+    [_exitBtn addTarget:self action:@selector(exitBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_exitBtn];
+}
+
+-(void) exitBtnClick {
+//    [TBStoreDataUtil storeUser:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

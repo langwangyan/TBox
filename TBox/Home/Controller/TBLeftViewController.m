@@ -10,6 +10,7 @@
 #import "TBShareViewController.h"
 #import "TBWallentViewController.h"
 #import "TBSettingViewController.h"
+#import "TBGuideViewController.h"
 #import "TBStoreDataUtil.h"
 
 @interface TBLeftViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -163,10 +164,10 @@
         }
     }else if ([self.menuArray[indexPath.row] isEqualToString:@"用户指南"]) {
         if ([self validateIsLogin]) {
-            TBWallentViewController *wallentVC = [[TBWallentViewController alloc]init];
+            TBGuideViewController *guideVC = [[TBGuideViewController alloc]init];
             
             if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
-                [self.delegate pushVC:wallentVC];
+                [self.delegate pushVC:guideVC];
             }
         }else {
             //说明未登录
