@@ -12,12 +12,13 @@
 #import "TBSettingViewController.h"
 #import "TBGuideViewController.h"
 #import "TBStoreDataUtil.h"
+#import "TBUserCenterViewController.h"
 
 @interface TBLeftViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) UIView *headView;
 
-@property(nonatomic,strong) UIImageView *headerImgView;
+@property(nonatomic,strong) UIButton *headerImgBtn;
 @property(nonatomic,strong) UILabel *nameLabel;
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,8 +42,8 @@
 }
 
 -(void)initData{
-    _menuArray = [NSArray arrayWithObjects:@"我的行程",@"我的钱包",@"分享有礼",@"用户指南",@"我的消息",@"救援中心",@"设置", nil];
-    _meanuDict = @{@"我的行程":@"main_xingcheng",@"我的钱包":@"main_mywallent",@"分享有礼":@"main_share",@"用户指南":@"main_userguide",@"我的消息":@"main_message",@"救援中心":@"main_help_center",@"设置":@"main_setting"};
+    _menuArray = [NSArray arrayWithObjects:@"我的行程",@"我的钱包",@"分享有礼",@"用户指南",@"我的消息"/*,@"救援中心"**/,@"设置", nil];
+    _meanuDict = @{@"我的行程":@"main_xingcheng",@"我的钱包":@"main_mywallent",@"分享有礼":@"main_share",@"用户指南":@"main_userguide",@"我的消息":@"main_message"/*,@"救援中心":@"main_help_center"**/,@"设置":@"main_setting"};
 }
 
 //初始化tableView
@@ -91,11 +92,11 @@
     _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LEFTVIEW_WIDTH, 120)];
     [_headView setBackgroundColor:[UIColor whiteColor]];
     
-    _headerImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"IMG_0123.JPG"]];
-    _headerImgView.layer.cornerRadius=40;
-    [_headerImgView setFrame:CGRectMake(20, 40, 60, 60)];
-    
-    [self.headView addSubview:_headerImgView];
+    _headerImgBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 40, 60, 60)];
+    [_headerImgBtn setImage:[UIImage imageNamed:@"IMG_0123.JPG"] forState:UIControlStateNormal];
+    _headerImgBtn.layer.cornerRadius=40;
+    [_headerImgBtn addTarget:self action:@selector(headerImgClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.headView addSubview:_headerImgBtn];
     
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 60, tableView.frame.size.width-100, 50)];
     _nameLabel.text=user.userId ;
@@ -105,6 +106,22 @@
     [self.headView addSubview:_nameLabel];
     
     return self.headView;
+}
+
+-(void) headerImgClick {
+    if ([self validateIsLogin]) {
+        TBUserCenterViewController *userCenterVC = [[TBUserCenterViewController alloc]init];
+        
+        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+            [self.delegate pushVC:userCenterVC];
+        }
+    }else {
+        //说明未登录
+        TBLoginIndexViewController *tbLoginIndexVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_loginIndeVC"];
+        if ([self.delegate respondsToSelector:@selector(pushVC:)]) {
+            [self.delegate pushVC:tbLoginIndexVC];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

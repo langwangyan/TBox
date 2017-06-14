@@ -11,7 +11,6 @@
 @interface TBGuideViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) NSArray *menuArray;
-@property(nonatomic,strong) NSArray *rightStrArray;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
