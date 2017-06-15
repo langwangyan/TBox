@@ -23,7 +23,7 @@
 @property(nonatomic,strong) UIButton *scoreHistoryBtn;//积分历史
 
 @property(nonatomic,strong) NSArray *menuArray;
-@property(nonatomic,strong) NSArray *rightStrArray;
+@property(nonatomic,strong) TBUser *user;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -73,13 +73,11 @@
     
     _userNickLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 80, SCREEN_WIDTH-100, 20)];
     [_userNickLabel setFont:[UIFont systemFontOfSize:13]];
-    _userNickLabel.text = @"用户昵称：我是王言么么哒点点点";
     
     [self.view addSubview:_userNickLabel];
     
     _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 80+25, SCREEN_WIDTH-100, 20)];
     [_scoreLabel setFont:[UIFont systemFontOfSize:13]];
-    _scoreLabel.text = @"用户昵称：我是王言么么哒点点点";
     
     [self.view addSubview:_scoreLabel];
     
@@ -129,8 +127,8 @@
 //重新加载数据
 -(void)reloadData {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,USERCENTER_API];
-    TBUser *user = [TBStoreDataUtil restoreUser];;
-    NSDictionary *dict =@{@"userId":user.userId};
+    self.user = [TBStoreDataUtil restoreUser];
+    NSDictionary *dict =@{@"userId":self.user.userId};
     __weak typeof(self) weakself = self;
     
     // 写请求对象
@@ -151,14 +149,42 @@
         if (responseDict && [responseCode isEqualToString:@"200"]) {
             
             NSDictionary *dataDict = responseDict[@"data"];
-            _rightStrArray = [NSArray arrayWithObjects:[NSString stringWithFormat:@"￥%@",dataDict[@"deposit"]],[NSString stringWithFormat:@"￥%@",dataDict[@"balance"]],[NSString stringWithFormat:@"%@张",dataDict[@"couponNum"]], nil];
+            [weakself.user setBikeDeposit:[dataDict[@"bikeDeposit"] floatValue]];
+            [weakself.user setBirthday:dataDict[@"birthday"]];
+            [weakself.user setCarDeposit:[dataDict[@"carDeposit"] floatValue]];
+            [weakself.user setDrivingAuthStatus:[dataDict[@"drivingAuthStatus"] intValue]];
+            [weakself.user setGender:dataDict[@"gender"]];
+            [weakself.user setGrade:[dataDict[@"grade"] intValue]];
+            [weakself.user setHeadIconBase64:dataDict[@"headIconBase64"]];
+            [weakself.user setIdCardAuthStatus:[dataDict[@"idCardAuthStatus"] intValue]];
+            [weakself.user setNickname:dataDict[@"nickname"]];
+            [weakself.user setPaidDepositAmount:dataDict[@"paidDepositAmount"]];
+            
+            [TBStoreDataUtil storeUser:weakself.user];
+            
         }else {
             [TBProgressUtil showToast2View:weakself.view WithMsg:responseDict[@"message"]];
-            _rightStrArray = [NSArray arrayWithObjects:@"￥0",@"￥0",@"0张", nil];
+            
         }
-        [tb_progress hideLoadingView];
+        
+        //设置头像
+        if (weakself.user.headIconBase64 && ![weakself.user.headIconBase64 isEqual:[NSNull null]] && ![@"" isEqualToString:weakself.user.headIconBase64]) {
+            [_imgBtn setImage:[UIImage imageWithData:[weakself.user.headIconBase64 dataUsingEncoding:NSUTF8StringEncoding]] forState:UIControlStateNormal];
+        }
+        
+        //设置nickname
+        if (weakself.user.nickname && ![weakself.user.nickname isEqual:[NSNull null]] && [@"" isEqualToString:weakself.user.nickname]) {
+            weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.nickname];
+        }else {
+            weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.userId];
+        }
+        
+        //设置积分
+        weakself.scoreLabel.text = [NSString stringWithFormat:@"积分：%d", weakself.user.grade];
         
         [weakself.tableView reloadData];
+        
+        [tb_progress hideLoadingView];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -180,6 +206,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.user = [TBStoreDataUtil restoreUser];
     static NSString *TABLE_VIEW_ID = @"setting_cell_id";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLE_VIEW_ID];
     if (!cell) {
@@ -193,6 +220,36 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; //显示最右边的箭头
+    UILabel *rightLabel = [[UILabel alloc] init]; //定义一个在cell最右边显示的label
+    rightLabel.font = [UIFont boldSystemFontOfSize:15];
+    [rightLabel sizeToFit];
+    rightLabel.backgroundColor = [UIColor clearColor];
+    rightLabel.frame =CGRectMake(SCREEN_WIDTH - 80 - 10,12, 80, 23);
+    
+    [cell.contentView addSubview:rightLabel];
+    rightLabel.textColor = [UIColor orangeColor];
+    
+    if ([_menuArray[indexPath.row] isEqualToString:@"用户昵称"]) {
+        
+        if (self.user.nickname && ![self.user.nickname isEqual:[NSNull null]] && [@"" isEqualToString:self.user.nickname]) {
+            rightLabel.text = self.user.nickname;
+        }else {
+            rightLabel.text = self.user.userId;
+        }
+
+        
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"性别"]) {
+        rightLabel.text = self.user.gender?self.user.gender:@"保密";
+        
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"出生年月"]) {
+        rightLabel.text = self.user.birthday?self.user.birthday:@"未填写";
+        
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"实名认证*"]) {
+        rightLabel.text = self.user.idCardAuthStatus?@"已认证":@"未认证";
+        
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"电子邮箱"]) {
+        
+    }
     
     return cell;
 }
@@ -201,27 +258,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //点击之后去掉灰色背景
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if ([_menuArray[indexPath.row] isEqualToString:@"我的消息"]) {
+    if ([_menuArray[indexPath.row] isEqualToString:@"用户昵称"]) {
         
         //        TBBondViewController *bondVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_bondVC"];
         //
         //        [self.navigationController pushViewController:bondVC animated:YES];
         
-    }else if ([_menuArray[indexPath.row] isEqualToString:@"关于我们"]) {
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"性别"]) {
         
         
-    }else if ([_menuArray[indexPath.row] isEqualToString:@"联系我们"]) {
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"出生年月"]) {
         
         
-    }else if ([_menuArray[indexPath.row] isEqualToString:@"意见反馈"]) {
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"实名认证*"]) {
         
 //        TBFeedBackViewController *feedbackVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tb_feedbackVC"];
 //        
 //        [self.navigationController pushViewController:feedbackVC animated:YES];
         
-    }else if ([_menuArray[indexPath.row] isEqualToString:@"清理缓存"]) {
-        
-    }else if ([_menuArray[indexPath.row] isEqualToString:@"系统版本"]) {
+    }else if ([_menuArray[indexPath.row] isEqualToString:@"电子邮箱"]) {
         
     }
     

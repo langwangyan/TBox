@@ -18,14 +18,18 @@
 @property(nonatomic,strong) NSString *drivingRecordNo;//驾照档案号
 
 
+@property(nonatomic,assign) CGFloat bikeDeposit;//自行车押金
+@property(nonatomic,assign) CGFloat carDeposit;//自行车押金
+@property(nonatomic,strong) NSString *paidDepositAmount;//已付押金
+
 @property(nonatomic,strong) NSString *nickname;//昵称
-@property(nonatomic,strong) NSString *grade;//级别
+@property(nonatomic,assign) int grade;//级别
 @property(nonatomic,strong) NSString *gender;//性别
 @property(nonatomic,strong) NSString *birthday;//生日
 @property(nonatomic,strong) NSString *headIconBase64;//头像
 
-@property(nonatomic,strong) NSString *idCardAuthStatus;//身份证是否通过审核
-@property(nonatomic,strong) NSString *drivingAuthStatus;//驾照是否通过审核
-@property(nonatomic,strong) NSString *depositStatus;//是否已交保证金
+@property(nonatomic,assign) int idCardAuthStatus;//身份证是否通过审核
+@property(nonatomic,assign) int drivingAuthStatus;//驾照是否通过审核
+@property(nonatomic,assign) int depositStatus;//是否已交保证金
 
 @end
