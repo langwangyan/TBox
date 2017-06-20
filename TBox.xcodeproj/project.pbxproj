@@ -204,6 +204,7 @@
 		E3FA176A1EB8CB0E0013ECC1 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FA17631EB8CB0E0013ECC1 /* BaiduMapAPI_Utils.framework */; };
 		E3FA176D1EB8CB320013ECC1 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FA176B1EB8CB320013ECC1 /* libcrypto.a */; };
 		E3FA176E1EB8CB320013ECC1 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FA176C1EB8CB320013ECC1 /* libssl.a */; };
+		E3FD8F981EF42D4A00827339 /* TBCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FD8F971EF42D4A00827339 /* TBCenterTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -571,6 +572,8 @@
 		E3FA17631EB8CB0E0013ECC1 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Utils.framework; path = TBox/ThirdFramework/BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
 		E3FA176B1EB8CB320013ECC1 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = TBox/ThirdFramework/libcrypto.a; sourceTree = "<group>"; };
 		E3FA176C1EB8CB320013ECC1 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = TBox/ThirdFramework/libssl.a; sourceTree = "<group>"; };
+		E3FD8F961EF42D4A00827339 /* TBCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCenterTableViewCell.h; sourceTree = "<group>"; };
+		E3FD8F971EF42D4A00827339 /* TBCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCenterTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1340,6 +1343,7 @@
 		E3DF766A1EC6DFEE00D07149 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E3FD8F951EF42D1000827339 /* Center */,
 				E3071CAB1EF0494400E34545 /* Guide */,
 				E39F48E21EEEE6C70046FC0C /* Wallent */,
 				E39F48E11EEEE5900046FC0C /* Setting */,
@@ -1355,6 +1359,15 @@
 				E3550F211EF184C900371E5C /* TBUserCenterViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E3FD8F951EF42D1000827339 /* Center */ = {
+			isa = PBXGroup;
+			children = (
+				E3FD8F961EF42D4A00827339 /* TBCenterTableViewCell.h */,
+				E3FD8F971EF42D4A00827339 /* TBCenterTableViewCell.m */,
+			);
+			path = Center;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1546,6 +1559,7 @@
 				E3C1AB931EAF9BE300F1CF16 /* FLAnimatedImage.m in Sources */,
 				E3AA22C01EB0EFC0006C656D /* NSNumber+BFKit.m in Sources */,
 				E3AA22D11EB0EFC1006C656D /* UITextField+BFKit.m in Sources */,
+				E3FD8F981EF42D4A00827339 /* TBCenterTableViewCell.m in Sources */,
 				E3AA22D71EB0EFC1006C656D /* BFApp.m in Sources */,
 				E3C1AB181EAF97C300F1CF16 /* MJRefreshAutoStateFooter.m in Sources */,
 				E3AA22C41EB0EFC1006C656D /* NSThread+BFKit.m in Sources */,
