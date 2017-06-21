@@ -5,7 +5,7 @@
 //  Created by 王言 on 2017/6/14.
 //  Copyright © 2017年 tbox. All rights reserved.
 //
-
+#define SAVE_INFO_API @"saveUserInfo"
 #define USERCENTER_API @"getUserInfo"
 #import "TBUserCenterViewController.h"
 #import "TBCenterTableViewCell.h"
@@ -30,6 +30,15 @@
 @property(nonatomic,strong) UIPickerView * genderPV;
 @property(nonatomic,strong) NSArray *genderArray;
 @property(nonatomic,strong) UIButton *genderSaveBtn;
+@property(nonatomic,strong) NSString *gender;
+@property(nonatomic,strong) UIView *genderView;
+
+@property(nonatomic,strong) UIDatePicker *birthDP;
+@property(nonatomic,strong) UIButton *birthSaveBtn;
+@property(nonatomic,strong) NSString *birth;
+@property(nonatomic,strong) UIView *birthView;
+
+@property(nonatomic,assign) BOOL isSave;
 
 @end
 
@@ -52,7 +61,7 @@
 //初始化顶部bar
 - (void) initTopBar {
     //设置backBarButtonItem
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backAction)];
     //设置中间文字
     self.navigationItem.title = @"个人中心";
     //设置右侧button
@@ -61,13 +70,55 @@
     
     [self.navigationController setNavigationBarHidden:NO];
 }
-//返回
--(void) backAction {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 //保存用户信息
 -(void) saveUserInfo {
+    if (!(self.user.nickname && ![self.user.nickname isEqualToString:@""] && self.user.gender && ![self.user.gender isEqualToString:@""] && self.user.birthday && ![self.user.birthday isEqualToString:@""])) {
+        
+        [TBProgressUtil showToast2View:self.view WithMsg:@"昵称、性别、出生日期均不能为空哦~"];
+        
+        return;
+    }
     
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,SAVE_INFO_API];
+    NSDictionary *dict =@{@"userId":self.user.userId,@"nickname":self.user.nickname,@"gender":self.user.gender,@"birthday":self.user.birthday};
+    
+    __weak typeof(self) weakself = self;
+    
+    // 写请求对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    // 接收的输入类型
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    TBProgressUtil *tb_progress = [[TBProgressUtil alloc]init];
+    [tb_progress showLoading2View:self.view];
+    
+    //post请求
+    [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
+        if (responseDict && [responseCode isEqualToString:@"200"]) {
+            
+            [TBStoreDataUtil storeUser:weakself.user];
+            
+            weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.nickname];
+            [TBProgressUtil showToast2View:weakself.view WithMsg:@"保存成功"];
+        }else {
+            
+            [TBProgressUtil showToast2View:weakself.view WithMsg:responseDict[@"message"]];
+        }
+        
+        [tb_progress hideLoadingView];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [tb_progress hideLoadingView];
+        
+        [TBProgressUtil showToast2View:weakself.view WithMsg:error.description];
+    }];
 }
 
 //初始化data
@@ -124,17 +175,100 @@
     [self.view addSubview:_tableView];
 }
 
+-(void) initDatePickerView {
+    if (!self.birthView) {
+        self.birthView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200, SCREEN_WIDTH, 200)];
+        [self.birthView setBackgroundColor:[UIColor colorWithRed:168.0/255 green:168.0/255 blue:172.0/255 alpha:0.5]];
+        
+        self.birthDP = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 200)];
+        self.birthDP.datePickerMode = UIDatePickerModeDate;
+        
+        NSLocale *locale = [[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"];
+        self.birthDP.locale = locale;
+        
+        self.birthSaveBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 10, 80, 30)];
+        [self.birthSaveBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [self.birthSaveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.birthSaveBtn.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+        self.birthSaveBtn.clipsToBounds = YES;
+        self.birthSaveBtn.layer.cornerRadius=15;
+        [self.birthSaveBtn addTarget:self action:@selector(birthSaveBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.birthView addSubview:self.birthSaveBtn];
+        [self.birthView addSubview:self.birthDP];
+        [self.view addSubview:self.birthView];
+        
+        if (self.birth && ![self.birth isEqualToString:@""]) {
+            NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd"];
+            self.birthDP.date = [dateFormat dateFromString:self.birth];
+        }else{
+            self.birthDP.date = [NSDate date];
+        }
+    }
+}
+
+-(void) birthSaveBtnClick {
+    NSDate *date = self.birthDP.date;
+    if (date) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        self.birth = [dateFormatter stringFromDate:date];
+    }
+    
+    self.user.birthday = self.birth;
+    
+    self.birthDP = nil;
+    self.birthSaveBtn = nil;
+    [self.birthView removeFromSuperview];
+    self.birthView = nil;
+    
+    [self.tableView reloadData];
+}
+
 //初始化pickView
 -(void) initPickView {
-    if (!self.genderPV) {
-        self.genderPV = [[UIPickerView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200, SCREEN_WIDTH, 200)];
-        self.genderArray = [[NSArray alloc]initWithObjects:@"男",@"女",nil];
+    if (!self.genderView) {
+        self.genderView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-200, SCREEN_WIDTH, 200)];
+        [self.genderView setBackgroundColor:[UIColor colorWithRed:168.0/255 green:168.0/255 blue:172.0/255 alpha:0.5]];
+        
+        self.genderPV = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 200)];
+        self.genderArray = [[NSArray alloc]initWithObjects:@" ",@"男",@"女",nil];
         self.genderPV.dataSource = self;
         self.genderPV.delegate = self;
         
-        [self.view addSubview:self.genderPV];
+        self.genderSaveBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-100, 10, 80, 30)];
+        [self.genderSaveBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [self.genderSaveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.genderSaveBtn.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
+        self.genderSaveBtn.clipsToBounds = YES;
+        self.genderSaveBtn.layer.cornerRadius=15;
+        [self.genderSaveBtn addTarget:self action:@selector(genderSaveBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.genderView addSubview:self.genderSaveBtn];
+        [self.genderView addSubview:self.genderPV];
+        [self.view addSubview:self.genderView];
+        
+        self.gender = self.gender?self.gender:self.user.gender;
+        
+        if(self.gender && [self.gender isEqualToString:@"女"]) {
+            [self.genderPV selectRow:2 inComponent:0 animated:YES];
+        }else if(self.gender && [self.gender isEqualToString:@"男"]){
+            [self.genderPV selectRow:1 inComponent:0 animated:YES];
+        }
     }
+}
 
+//保存性别信息
+-(void) genderSaveBtnClick {
+    [self.user setGender:self.gender];
+    //remove pickView
+    self.genderPV = nil;
+    self.genderSaveBtn = nil;
+    [self.genderView removeFromSuperview];
+    self.genderView = nil;
+    
+    [self.tableView reloadData];
 }
 
 //上传头像
@@ -193,7 +327,6 @@
             [weakself.user setPaidDepositAmount:dataDict[@"paidDepositAmount"]];
             
             [TBStoreDataUtil storeUser:weakself.user];
-            
             [weakself initTableView];
             
         }else {
@@ -207,7 +340,7 @@
             [_imgBtn setImage:[UIImage imageWithData:[weakself.user.headIconBase64 dataUsingEncoding:NSUTF8StringEncoding]] forState:UIControlStateNormal];
         }
         //设置nickname
-        if (weakself.user.nickname && ![weakself.user.nickname isEqual:[NSNull null]] && [@"" isEqualToString:weakself.user.nickname]) {
+        if (weakself.user.nickname && ![weakself.user.nickname isEqual:[NSNull null]] && ![@"" isEqualToString:weakself.user.nickname]) {
             weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.nickname];
         }else {
             weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.userId];
@@ -219,8 +352,15 @@
         [tb_progress hideLoadingView];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.userId];
-        weakself.scoreLabel.text = @"积分：0";
+        //设置nickname
+        if (weakself.user.nickname && ![weakself.user.nickname isEqual:[NSNull null]] && ![@"" isEqualToString:weakself.user.nickname]) {
+            weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.nickname];
+        }else {
+            weakself.userNickLabel.text = [NSString stringWithFormat:@"用户昵称：%@", weakself.user.userId];
+        }
+        
+        //设置积分
+        weakself.scoreLabel.text = [NSString stringWithFormat:@"积分：%d", weakself.user.grade];
         
         [tb_progress hideLoadingView];
         
@@ -274,13 +414,36 @@
     //点击之后去掉灰色背景
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if ([_menuArray[indexPath.row] isEqualToString:@"用户昵称"]) {
+        //remove pickView
+        self.genderPV = nil;
+        self.genderSaveBtn = nil;
+        [self.genderView removeFromSuperview];
+        self.genderView = nil;
+        
+        self.birthDP = nil;
+        self.birthSaveBtn = nil;
+        [self.birthView removeFromSuperview];
+        self.birthView = nil;
+        
         [self changeNick:self.user.nickname indexPath:indexPath];
         
     }else if ([_menuArray[indexPath.row] isEqualToString:@"性别"]) {
-        [self changeGender:self.user.gender indexPath:indexPath];
+        self.birthDP = nil;
+        self.birthSaveBtn = nil;
+        [self.birthView removeFromSuperview];
+        self.birthView = nil;
+        
+        [self initPickView];
         
     }else if ([_menuArray[indexPath.row] isEqualToString:@"出生年月"]) {
         
+        //remove pickView
+        self.genderPV = nil;
+        self.genderSaveBtn = nil;
+        [self.genderView removeFromSuperview];
+        self.genderView = nil;
+        
+        [self initDatePickerView];
         
     }else if ([_menuArray[indexPath.row] isEqualToString:@"实名认证*"]) {
         
@@ -324,23 +487,23 @@
     [self presentViewController:alertController animated:true completion:nil];
 }
 
-//修改性别
--(void)changeGender:(NSString *)gender indexPath:(NSIndexPath *)indexPath {
-    [self initPickView];
-    [self.genderPV setHidden:NO];
-}
-
 #pragma mark pickerView数据源&代理
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
 
 -(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 2;
+    return 3;
 }
 
 -(NSString*) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [self.genderArray objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component
+{
+    self.gender = self.genderArray[row];
 }
 
 #pragma mark 从摄像头获取图片或视频

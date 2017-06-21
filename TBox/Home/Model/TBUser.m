@@ -17,6 +17,10 @@
     [aCoder encodeObject:self.mobile forKey:@"mobile"];
     [aCoder encodeObject:self.drivingNo forKey:@"drivingNo"];
     [aCoder encodeObject:self.drivingRecordNo forKey:@"drivingRecordNo"];
+    [aCoder encodeObject:self.paidDepositAmount forKey:@"paidDepositAmount"];
+    [aCoder encodeObject:self.nickname forKey:@"nickname"];
+    [aCoder encodeObject:self.gender forKey:@"gender"];
+    [aCoder encodeObject:self.birthday forKey:@"birthday"];
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder {
@@ -27,6 +31,10 @@
         self.mobile = [aDecoder decodeObjectForKey:@"mobile"];
         self.drivingNo = [aDecoder decodeObjectForKey:@"drivingNo"];
         self.drivingRecordNo = [aDecoder decodeObjectForKey:@"drivingRecordNo"];
+        self.paidDepositAmount = [aDecoder decodeObjectForKey:@"paidDepositAmount"];
+        self.nickname = [aDecoder decodeObjectForKey:@"nickname"];
+        self.gender = [aDecoder decodeObjectForKey:@"gender"];
+        self.birthday = [aDecoder decodeObjectForKey:@"birthday"];
     }
     return self;
 }
