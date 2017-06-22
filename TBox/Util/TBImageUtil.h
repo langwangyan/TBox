@@ -11,5 +11,6 @@
 @interface TBImageUtil : NSObject
 
 +(NSString *) image2Base64Str:(UIImage *)image;
++(UIImage *) base64Str2Image:(NSString *)str;
 
 @end

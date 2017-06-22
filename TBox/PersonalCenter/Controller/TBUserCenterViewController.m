@@ -6,9 +6,11 @@
 //  Copyright © 2017年 tbox. All rights reserved.
 //
 #define SAVE_INFO_API @"saveUserInfo"
+#define UPLOAD_ICON_API @"uploadHeadIcon"
 #define USERCENTER_API @"getUserInfo"
 #import "TBUserCenterViewController.h"
 #import "TBCenterTableViewCell.h"
+#import "TBImageUtil.h"
 
 @interface TBUserCenterViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIActionSheetDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 
@@ -315,14 +317,14 @@
         if (responseDict && [responseCode isEqualToString:@"200"]) {
             
             NSDictionary *dataDict = responseDict[@"data"];
-            [weakself.user setBikeDeposit:[dataDict[@"bikeDeposit"] floatValue]];
+            [weakself.user setBikeDeposit:dataDict[@"bikeDeposit"]];
             [weakself.user setBirthday:dataDict[@"birthday"]];
-            [weakself.user setCarDeposit:[dataDict[@"carDeposit"] floatValue]];
-            [weakself.user setDrivingAuthStatus:[dataDict[@"drivingAuthStatus"] intValue]];
+            [weakself.user setCarDeposit:dataDict[@"carDeposit"]];
+            [weakself.user setDrivingAuthStatus:dataDict[@"drivingAuthStatus"]];
             [weakself.user setGender:dataDict[@"gender"]];
-            [weakself.user setGrade:[dataDict[@"grade"] intValue]];
+            [weakself.user setGrade:dataDict[@"grade"]];
             [weakself.user setHeadIconBase64:dataDict[@"headIconBase64"]];
-            [weakself.user setIdCardAuthStatus:[dataDict[@"idCardAuthStatus"] intValue]];
+            [weakself.user setIdCardAuthStatus:dataDict[@"idCardAuthStatus"]];
             [weakself.user setNickname:dataDict[@"nickname"]];
             [weakself.user setPaidDepositAmount:dataDict[@"paidDepositAmount"]];
             
@@ -556,8 +558,48 @@
 #pragma mark 图片保存完毕的回调
 - (void) image: (UIImage *) image didFinishSavingWithError:(NSError *) error contextInfo: (void *)contextInf{
     
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,UPLOAD_ICON_API];
+    NSString *headIconBase64 = [TBImageUtil image2Base64Str:image];
+    NSDictionary *dict =@{@"userId":self.user.userId,@"headIconBase64":headIconBase64};
+    
+    __weak typeof(self) weakself = self;
+    
     [self.imagePickerController dismissViewControllerAnimated:YES completion:^{
-        [self.imgBtn setImage:image forState:UIControlStateNormal];
+    
+        // 写请求对象
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        // 接收的输入类型
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        
+        TBProgressUtil *tb_progress = [[TBProgressUtil alloc]init];
+        [tb_progress showLoading2View:self.view];
+        
+        //post请求
+        [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+            NSString *responseCode = [NSString stringWithFormat:@"%@", responseDict[@"code"]];
+            if (responseDict && [responseCode isEqualToString:@"200"]) {
+                
+                [weakself.imgBtn setImage:image forState:UIControlStateNormal];
+                
+                [TBProgressUtil showToast2View:weakself.view WithMsg:@"头像上传成功！"];
+                
+            }else {
+                [TBProgressUtil showToast2View:weakself.view WithMsg:responseDict[@"message"]];
+            }
+            
+            [tb_progress hideLoadingView];
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            [tb_progress hideLoadingView];
+            
+            [TBProgressUtil showToast2View:weakself.view WithMsg:error.description];
+        }];
+        
     }];
 }
 

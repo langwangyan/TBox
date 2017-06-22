@@ -29,4 +29,10 @@
             alpha == kCGImageAlphaPremultipliedLast);
 }
 
++(UIImage *) base64Str2Image:(NSString *)str {
+    NSData *imageData = [[NSData alloc] initWithBase64EncodedString:str options:0];
+    
+    return [[UIImage alloc]initWithData:imageData];
+}
+
 @end

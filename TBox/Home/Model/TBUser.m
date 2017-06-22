@@ -21,6 +21,14 @@
     [aCoder encodeObject:self.nickname forKey:@"nickname"];
     [aCoder encodeObject:self.gender forKey:@"gender"];
     [aCoder encodeObject:self.birthday forKey:@"birthday"];
+    
+    [aCoder encodeObject:self.bikeDeposit forKey:@"bikeDeposit"];
+    [aCoder encodeObject:self.carDeposit forKey:@"carDeposit"];
+    [aCoder encodeObject:self.grade forKey:@"grade"];
+    [aCoder encodeObject:self.idCardAuthStatus forKey:@"idCardAuthStatus"];
+    [aCoder encodeObject:self.drivingAuthStatus forKey:@"drivingAuthStatus"];
+    [aCoder encodeObject:self.depositStatus forKey:@"depositStatus"];
+
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder {
@@ -35,6 +43,13 @@
         self.nickname = [aDecoder decodeObjectForKey:@"nickname"];
         self.gender = [aDecoder decodeObjectForKey:@"gender"];
         self.birthday = [aDecoder decodeObjectForKey:@"birthday"];
+        
+        self.bikeDeposit = [aDecoder decodeObjectForKey:@"bikeDeposit"];
+        self.carDeposit = [aDecoder decodeObjectForKey:@"carDeposit"];
+        self.grade = [aDecoder decodeObjectForKey:@"grade"];
+        self.idCardAuthStatus = [aDecoder decodeObjectForKey:@"idCardAuthStatus"];
+        self.drivingAuthStatus = [aDecoder decodeObjectForKey:@"drivingAuthStatus"];
+        self.depositStatus = [aDecoder decodeObjectForKey:@"depositStatus"];
     }
     return self;
 }

@@ -10,6 +10,7 @@
 #import "TBIDCardVerficationViewController.h"
 
 #define MARGIN 20.f
+#define GET_SMS_CODE @"getSMSCode"
 
 @interface TBRegisterViewController ()<UIAlertViewDelegate>
 
@@ -56,7 +57,7 @@
 
 - (IBAction)generateIdentityCodeBtnOnClick:(id)sender {
     //获取短信验证码
-    NSString *urlStr = [NSString stringWithFormat:@"%@getCheckCode",API_PRE_URL];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",API_PRE_URL,GET_SMS_CODE];
     NSDictionary *dict =@{@"mobile":self.phoneNumTF.text};
     
     // 写请求对象
@@ -69,7 +70,8 @@
     [manager POST:urlStr parameters:dict progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@" %@",responseObject);
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@" %@",responseDict);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
